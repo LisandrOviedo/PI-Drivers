@@ -33,16 +33,19 @@ const getDriverByName = async (req, res) => {
       }
     }
 
-    const driversByName = Driver.findAndCountAll({
-      include: [{ name: name }],
-      limit: 15,
-    });
+    if (result.length - 15 === 0) {
+      return res.json(result);
+    } else {
+      const driversByName = Driver.findAndCountAll({
+        include: [{ name: name }],
+        limit: result.length - 15,
+      });
 
-    if (!driversByName) {
-      return res.status(404).json({ error: "Drivers not found" });
+      if (driversByName) {
+        result.push(driversByName);
+      }
+      return res.json(result);
     }
-
-    return res.json(driversByName);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
