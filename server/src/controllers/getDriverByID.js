@@ -1,8 +1,38 @@
-// const { Favorite } = require("../DB_connection");
+const { Driver } = require("../db");
+const axios = require("axios");
 
 const getDriverByID = async (req, res) => {
   const { idDriver } = req.params;
-  return res.json({ message: `Funciona get /drivers/${idDriver}` });
+  const URL = `http://localhost:5000/drivers/${idDriver}`;
+
+  try {
+    const { data } = await axios(URL);
+
+    if (data) {
+      const driver_api = {
+        id: data.id,
+        name: data.name.forename,
+        last_name: data.name.surname,
+        description: data.description,
+        image: data.image.url,
+        nationality: data.nationality,
+        birthdate: data.dob,
+      };
+      return res.json(driver_api);
+    }
+
+    const driver_bd = await Driver.findOne({
+      where: { id: idDriver },
+    });
+
+    if (driver_bd) {
+      return res.json(driver_bd);
+    } else {
+      return res.status(404).json({ error: "Driver not found" });
+    }
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
 };
 
 module.exports = getDriverByID;
