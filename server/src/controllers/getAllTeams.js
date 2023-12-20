@@ -22,7 +22,7 @@ const getAllTeams = async (req, res) => {
     await Team.bulkCreate(arrayReady);
 
     const getAllTeamsDB = await Team.findAll({
-      attributes: ["name"],
+      attributes: ["id", "name"],
     });
 
     return res.json(getAllTeamsDB);
