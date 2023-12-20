@@ -6,34 +6,35 @@ const getDriverByName = async (req, res) => {
 
   try {
     const result = [];
-    let properties = {};
 
     const { data } = await axios(URL);
 
     if (data) {
-      for (const driver_api of data) {
+      for (let element of data) {
         if (result.length < 15) {
-          if (driver_api.name.forename.toLowerCase() === name.toLowerCase()) {
-            properties = {
-              id: driver_api.id,
-              name: driver_api.name.forename,
-              last_name: driver_api.name.surname,
-              description: driver_api.description,
-              image: driver_api.image.url,
-              nationality: driver_api.nationality,
-              birthdate: driver_api.dob,
+          if (element.name.forename.toLowerCase() == name.toLowerCase()) {
+            let properties = {
+              id: element.id,
+              name: element.name.forename,
+              last_name: element.name.surname,
+              description: element.description,
+              image: element.image.url,
+              nationality: element.nationality,
+              birthdate: element.dob,
             };
-          }
-          if (!driver_api.image.url) {
-            properties.image = "https://i.imgur.com/vpa5uds.png";
-          }
+            if (!element.image.url) {
+              properties.image = "https://i.imgur.com/vpa5uds.png";
+            }
 
-          result.push(properties);
+            result.push(properties);
+          }
+        } else {
+          break;
         }
       }
     }
 
-    if (result.length - 15 === 0) {
+    if (result.length - 15 == 0) {
       return res.json(result);
     } else {
       const driversByName = Driver.findAndCountAll({

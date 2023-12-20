@@ -10,7 +10,7 @@ const router = Router();
 // Routes GET
 router.get("/drivers", getAllDrivers);
 router.get("/drivers/:idDriver", getDriverByID);
-router.get("/drivers/name?", getDriverByName);
+router.get("/drivers/name?=", getDriverByName);
 router.get("/teams", getAllTeams);
 
 // Routes POST

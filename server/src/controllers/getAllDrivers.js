@@ -7,6 +7,21 @@ const getAllDrivers = async (req, res) => {
   try {
     const result = [];
 
+    await Driver.update(
+      { image: "https://i.imgur.com/vpa5uds.png" },
+      {
+        where: {
+          image: null,
+        },
+      }
+    );
+
+    const drivers_bd = await Driver.findAll();
+
+    for (const driver_bd of drivers_bd) {
+      result.push(driver_bd);
+    }
+
     const { data } = await axios(URL);
 
     if (data) {
@@ -27,21 +42,6 @@ const getAllDrivers = async (req, res) => {
 
         result.push(properties);
       }
-    }
-
-    await Driver.update(
-      { image: "https://i.imgur.com/vpa5uds.png" },
-      {
-        where: {
-          image: null,
-        },
-      }
-    );
-
-    const drivers_bd = await Driver.findAll();
-
-    for (const driver_bd of drivers_bd) {
-      result.push(driver_bd);
     }
 
     return res.json(result);
