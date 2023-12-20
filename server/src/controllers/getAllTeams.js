@@ -5,7 +5,7 @@ const getAllTeams = async (req, res) => {
   const URL = "http://localhost:5000/drivers";
 
   try {
-    let apiTeams = new Set(); // Para guardar todos los teams sin duplicidad
+    let apiTeams = new Set();
 
     const { data } = await axios(URL);
 
