@@ -1,7 +1,12 @@
 const { Driver, Team } = require("../db");
+const axios = require("axios");
 
 const postDriver = async (req, res) => {
+  const URL = "http://localhost:3001/teams";
+
   try {
+    await axios(URL);
+
     const {
       name,
       last_name,
