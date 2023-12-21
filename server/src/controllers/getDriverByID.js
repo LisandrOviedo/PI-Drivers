@@ -1,4 +1,4 @@
-const { Driver } = require("../db");
+const { Driver, Team } = require("../db");
 const axios = require("axios");
 
 const getDriverByID = async (req, res) => {
@@ -23,14 +23,15 @@ const getDriverByID = async (req, res) => {
       }
     } else {
       const driver_bd = await Driver.findByPk(idDriver, {
-        attributes: [
-          "id",
-          "name",
-          "last_name",
-          "description",
-          "image",
-          "nationality",
-          "birthdate",
+        attributes: { exclude: ["createdAt", "updatedAt"] },
+        include: [
+          {
+            model: Team,
+            attributes: ["name"],
+            through: {
+              attributes: [],
+            },
+          },
         ],
       });
 
