@@ -22,8 +22,16 @@ const getDriverByID = async (req, res) => {
         return res.json(driver_api);
       }
     } else {
-      const driver_bd = await Driver.findOne({
-        where: { id: idDriver },
+      const driver_bd = await Driver.findByPk(idDriver, {
+        attributes: [
+          "id",
+          "name",
+          "last_name",
+          "description",
+          "image",
+          "nationality",
+          "birthdate",
+        ],
       });
 
       if (driver_bd) {
