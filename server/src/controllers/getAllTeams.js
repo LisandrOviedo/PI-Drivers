@@ -18,8 +18,14 @@ const getAllTeams = async (req, res) => {
 
     const apiTeamsArray = [...apiTeams];
 
-    const arrayReady = apiTeamsArray.map((team) => ({ name: team }));
-    await Team.bulkCreate(arrayReady);
+    apiTeamsArray.forEach(async (teamready) => {
+      const [teamDriver, created] = await Team.findOrCreate({
+        where: { name: teamready },
+        defaults: {
+          name: teamready,
+        },
+      });
+    });
 
     const getAllTeamsDB = await Team.findAll({
       attributes: ["id", "name"],
