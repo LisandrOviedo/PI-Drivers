@@ -1,4 +1,5 @@
 const { Driver } = require("../db");
+const { Op } = require("sequelize");
 const axios = require("axios");
 
 const getDriverByName = async (req, res) => {
@@ -19,7 +20,9 @@ const getDriverByName = async (req, res) => {
 
     if (name) {
       const driversByName = await Driver.findAll({
-        where: { name: name },
+        where: {
+          name: { [Op.like]: `%${name}%` },
+        },
         limit: 15,
         attributes: [
           "id",
@@ -43,7 +46,9 @@ const getDriverByName = async (req, res) => {
       if (data) {
         for (let i = 0; i < data.length; i++) {
           if (result.length < 15) {
-            if (data[i].name.forename.toLowerCase() == name.toLowerCase()) {
+            if (
+              data[i].name.forename.toLowerCase().startsWith(name.toLowerCase())
+            ) {
               let properties = {
                 id: data[i].id,
                 name: data[i].name.forename,
@@ -65,9 +70,9 @@ const getDriverByName = async (req, res) => {
           }
         }
       }
+      return res.json(result);
     }
-
-    return res.json(result);
+    return res.status(400).json({ error: "Missing data" });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

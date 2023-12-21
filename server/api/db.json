@@ -7917,22 +7917,6 @@
       "url": "http://en.wikipedia.org/wiki/Lance_Reventlow",
       "teams": "Cooper, Maserati",
       "description": "Lance Graf von Haugwitz-Hardenberg-Reventlow,[1] (February 24, 1936 – July 24, 1972) was a British-born American entrepreneur, racing driver and heir to the Woolworth fortune. Reventlow was the only child of heiress Barbara Hutton and her second husband, Count Kurt Haugwitz-Hardenberg-Reventlow. His stepfathers included actor Cary Grant and Prince Igor Troubetzkoy."
-    },
-    {
-      "id": 509,
-      "driverRef": "hamilton",
-      "number": 44,
-      "code": "HAM",
-      "name": { "forename": "Lewis", "surname": "Hamilton" },
-      "image": {
-        "url": null,
-        "imageby": "By Morio - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=52060566"
-      },
-      "dob": "1985-01-07",
-      "nationality": "British",
-      "url": "http://en.wikipedia.org/wiki/Lewis_Hamilton",
-      "teams": "McLaren, Mercedes",
-      "description": "Sir Lewis Carl Davidson Hamilton MBE HonFREng (born 7 January 1985) is a British racing driver currently competing in Formula One, driving for Mercedes-AMG Petronas Formula One Team. In Formula One, Hamilton has won a joint-record seven World Drivers' Championship titles (tied with Michael Schumacher), and holds the records for the most wins (103), pole positions (103), and podium finishes (191), among many others. He is statistically considered as the most successful driver in Formula One history."
     }
   ]
 }
