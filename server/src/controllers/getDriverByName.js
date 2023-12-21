@@ -24,15 +24,7 @@ const getDriverByName = async (req, res) => {
           name: { [Op.like]: `%${name}%` },
         },
         limit: 15,
-        attributes: [
-          "id",
-          "name",
-          "last_name",
-          "description",
-          "image",
-          "nationality",
-          "birthdate",
-        ],
+        attributes: { exclude: ["createdAt", "updatedAt"] },
       });
 
       if (driversByName) {
