@@ -1,4 +1,4 @@
-const { Driver } = require("../db");
+const { Driver, Team } = require("../db");
 const { Op } = require("sequelize");
 const axios = require("axios");
 
@@ -25,6 +25,15 @@ const getDriverByName = async (req, res) => {
         },
         limit: 15,
         attributes: { exclude: ["createdAt", "updatedAt"] },
+        include: [
+          {
+            model: Team,
+            attributes: ["name"],
+            through: {
+              attributes: [],
+            },
+          },
+        ],
       });
 
       if (driversByName) {
