@@ -38,13 +38,11 @@ const getDriverByName = async (req, res) => {
         }
       }
 
-      if (result.length < 15) {
-        let aux = 15 - result.length;
+      const { data } = await axios(URL);
 
-        const { data } = await axios(URL);
-
-        if (data) {
-          for (let i = 0; i < aux; i++) {
+      if (data) {
+        for (let i = 0; i < data.length; i++) {
+          if (result.length < 15) {
             if (data[i].name.forename.toLowerCase() == name.toLowerCase()) {
               let properties = {
                 id: data[i].id,
@@ -62,6 +60,8 @@ const getDriverByName = async (req, res) => {
 
               result.push(properties);
             }
+          } else {
+            break;
           }
         }
       }
