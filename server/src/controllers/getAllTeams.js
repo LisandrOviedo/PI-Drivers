@@ -11,8 +11,8 @@ const getAllTeams = async (req, res) => {
 
     data.forEach((driver) => {
       if (driver.teams) {
-        let teamsDriver = driver.teams.match(/\b([\.A-Za-z\s])+\b/g);
-        teamsDriver.forEach((team) => apiTeams.add(team));
+        let teamsDriver = driver.teams.split(",");
+        teamsDriver.forEach((team) => apiTeams.add(team.trim()));
       }
     });
 

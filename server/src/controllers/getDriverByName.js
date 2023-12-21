@@ -5,13 +5,24 @@ const getDriverByName = async (req, res) => {
   const URL = "http://localhost:5000/drivers";
 
   try {
-    const result = [];
+    let result = [];
 
-    const { data } = await axios(URL);
+    const driversByName = Driver.findAndCountAll({
+      where: { name: [name] },
+      limit: 15,
+    });
 
-    if (data) {
-      for (let element of data) {
-        if (result.length < 15) {
+    if (driversByName) {
+      for (const element of driversByName) {
+        result.push(element);
+      }
+    }
+
+    while (result.length < 15) {
+      const { data } = await axios(URL);
+
+      if (data) {
+        for (let element of data) {
           if (element.name.forename.toLowerCase() == name.toLowerCase()) {
             let properties = {
               id: element.id,
@@ -21,6 +32,7 @@ const getDriverByName = async (req, res) => {
               image: element.image.url,
               nationality: element.nationality,
               birthdate: element.dob,
+              teams: element.teams,
             };
             if (!element.image.url) {
               properties.image = "https://i.imgur.com/vpa5uds.png";
@@ -28,25 +40,11 @@ const getDriverByName = async (req, res) => {
 
             result.push(properties);
           }
-        } else {
-          break;
         }
       }
     }
 
-    if (result.length - 15 == 0) {
-      return res.json(result);
-    } else {
-      const driversByName = Driver.findAndCountAll({
-        include: [{ name: name }],
-        limit: result.length - 15,
-      });
-
-      if (driversByName) {
-        result.push(driversByName);
-      }
-      return res.json(result);
-    }
+    return res.json(result);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
