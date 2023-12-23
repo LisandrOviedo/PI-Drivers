@@ -37,22 +37,22 @@ const getDriverByName = async (req, res) => {
       });
 
       if (driversByName) {
-        const resultado_bd = [];
+        const result_bd = [];
 
-        const resultado_finalxd = [];
+        const result_final = [];
 
         for (const driver of driversByName) {
-          resultado_bd.push(driver);
+          result_bd.push(driver);
         }
 
-        for (const driver of resultado_bd) {
+        for (const driver of result_bd) {
           const teams_join = [];
 
           driver.Teams.forEach((team) => {
             teams_join.push(team.name);
           });
 
-          const driver_bd_resultado = {
+          const driver_bd_result = {
             id: driver.id,
             name: driver.name,
             last_name: driver.last_name,
@@ -63,10 +63,10 @@ const getDriverByName = async (req, res) => {
             teams: teams_join.join(", "),
           };
 
-          resultado_finalxd.push(driver_bd_resultado);
+          result_final.push(driver_bd_result);
         }
 
-        resultado_finalxd.forEach((element) => {
+        result_final.forEach((element) => {
           result.push(element);
         });
       }

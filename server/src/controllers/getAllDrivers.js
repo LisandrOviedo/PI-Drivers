@@ -1,4 +1,4 @@
-const { Driver } = require("../db");
+const { Driver, Team } = require("../db");
 const axios = require("axios");
 
 const getAllDrivers = async (req, res) => {
@@ -16,11 +16,50 @@ const getAllDrivers = async (req, res) => {
       }
     );
 
-    const drivers_bd = await Driver.findAll();
+    const drivers_bd = await Driver.findAll({
+      attributes: { exclude: ["createdAt", "updatedAt"] },
+      include: [
+        {
+          model: Team,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
+    });
 
-    for (const driver_bd of drivers_bd) {
-      result.push(driver_bd);
+    const result_bd = [];
+    const result_final = [];
+
+    for (const driver of drivers_bd) {
+      result_bd.push(driver);
     }
+
+    for (const driver of result_bd) {
+      const teams_join = [];
+
+      driver.Teams.forEach((team) => {
+        teams_join.push(team.name);
+      });
+
+      const driver_bd_result = {
+        id: driver.id,
+        name: driver.name,
+        last_name: driver.last_name,
+        description: driver.description,
+        image: driver.image,
+        nationality: driver.nationality,
+        birthdate: driver.birthdate,
+        teams: teams_join.join(", "),
+      };
+
+      result_final.push(driver_bd_result);
+    }
+
+    result_final.forEach((element) => {
+      result.push(element);
+    });
 
     const { data } = await axios(URL);
 
@@ -34,6 +73,7 @@ const getAllDrivers = async (req, res) => {
           image: driver_api.image.url,
           nationality: driver_api.nationality,
           birthdate: driver_api.dob,
+          teams: driver_api.teams,
         };
 
         if (!driver_api.image.url) {

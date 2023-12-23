@@ -37,29 +37,29 @@ const getDriverByID = async (req, res) => {
       });
 
       if (driver_bd) {
-        const resultado_bd = [];
-        resultado_bd.push(driver_bd);
+        const result_bd = [];
+        result_bd.push(driver_bd);
 
         const teams_join = [];
 
-        for (const driver of resultado_bd) {
+        for (const driver of result_bd) {
           driver.Teams.forEach((element) => {
             teams_join.push(element.name);
           });
         }
 
-        const driver_bd_resultado = {
-          id: resultado_bd[0].id,
-          name: resultado_bd[0].name,
-          last_name: resultado_bd[0].last_name,
-          description: resultado_bd[0].description,
-          image: resultado_bd[0].image,
-          nationality: resultado_bd[0].nationality,
-          birthdate: resultado_bd[0].birthdate,
+        const driver_bd_result = {
+          id: result_bd[0].id,
+          name: result_bd[0].name,
+          last_name: result_bd[0].last_name,
+          description: result_bd[0].description,
+          image: result_bd[0].image,
+          nationality: result_bd[0].nationality,
+          birthdate: result_bd[0].birthdate,
           teams: teams_join.join(", "),
         };
 
-        return res.json(driver_bd_resultado);
+        return res.json(driver_bd_result);
       }
       return res.status(404).json({ error: "Driver not found" });
     }
