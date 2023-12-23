@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("/HomeBG.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+  @include sm {
+    font-size: 12px;
+  }
+}
