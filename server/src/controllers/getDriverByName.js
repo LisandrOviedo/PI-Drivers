@@ -37,9 +37,38 @@ const getDriverByName = async (req, res) => {
       });
 
       if (driversByName) {
-        for (const element of driversByName) {
-          result.push(element);
+        const resultado_bd = [];
+
+        const resultado_finalxd = [];
+
+        for (const driver of driversByName) {
+          resultado_bd.push(driver);
         }
+
+        for (const driver of resultado_bd) {
+          const teams_join = [];
+
+          driver.Teams.forEach((team) => {
+            teams_join.push(team.name);
+          });
+
+          const driver_bd_resultado = {
+            id: driver.id,
+            name: driver.name,
+            last_name: driver.last_name,
+            description: driver.description,
+            image: driver.image,
+            nationality: driver.nationality,
+            birthdate: driver.birthdate,
+            teams: teams_join.join(", "),
+          };
+
+          resultado_finalxd.push(driver_bd_resultado);
+        }
+
+        resultado_finalxd.forEach((element) => {
+          result.push(element);
+        });
       }
 
       const { data } = await axios(URL);

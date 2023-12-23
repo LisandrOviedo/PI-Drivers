@@ -18,6 +18,7 @@ const getDriverByID = async (req, res) => {
           image: data.image.url,
           nationality: data.nationality,
           birthdate: data.dob,
+          teams: data.teams,
         };
         return res.json(driver_api);
       }
@@ -36,7 +37,29 @@ const getDriverByID = async (req, res) => {
       });
 
       if (driver_bd) {
-        return res.json(driver_bd);
+        const resultado_bd = [];
+        resultado_bd.push(driver_bd);
+
+        const teams_join = [];
+
+        for (const driver of resultado_bd) {
+          driver.Teams.forEach((element) => {
+            teams_join.push(element.name);
+          });
+        }
+
+        const driver_bd_resultado = {
+          id: resultado_bd[0].id,
+          name: resultado_bd[0].name,
+          last_name: resultado_bd[0].last_name,
+          description: resultado_bd[0].description,
+          image: resultado_bd[0].image,
+          nationality: resultado_bd[0].nationality,
+          birthdate: resultado_bd[0].birthdate,
+          teams: teams_join.join(", "),
+        };
+
+        return res.json(driver_bd_resultado);
       }
       return res.status(404).json({ error: "Driver not found" });
     }
