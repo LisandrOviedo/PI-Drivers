@@ -11,6 +11,18 @@ export default function About() {
     };
   }, []);
 
+  function calcularEdad() {
+    let hoy = new Date();
+    let edad = hoy.getFullYear() - 1998;
+    let mes = hoy.getMonth() - 11;
+
+    if (mes < 0 || (mes === 0 && hoy.getDate() > 24)) {
+      edad--;
+    }
+
+    return edad;
+  }
+
   return (
     <div className={styles.aboutContainer}>
       <h1>About Me</h1>
@@ -28,7 +40,7 @@ export default function About() {
           </tr>
           <tr>
             <td>Age</td>
-            <td>24 years</td>
+            <td>{calcularEdad()} years</td>
           </tr>
           <tr>
             <td>Nationality</td>

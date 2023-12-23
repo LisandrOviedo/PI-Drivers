@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div>
-      {pathname !== "/" &&
+      {/* {pathname !== "/" &&
         pathname !== "/register" &&
         pathname !== "/login" && (
           <NavBar
@@ -25,13 +25,13 @@ function App() {
             addRandomCharacter={addRandomCharacter}
             logout={logout}
           />
-        )}
+        )} */}
 
       <Routes>
         <Route path="*" element={<PageNotFound />} />
 
         <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login login={login} />} />
+        {/* <Route path="/login" element={<Login login={login} />} />
         <Route
           path="/register"
           element={<RegisterUser register={register} />}
@@ -44,7 +44,7 @@ function App() {
         <Route
           path="/home"
           element={<Drivers characters={characters} onClose={onClose} />}
-        />
+        /> */}
 
         <Route path="/about" element={<AboutMe />} />
 

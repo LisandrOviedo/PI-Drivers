@@ -1,0 +1,55 @@
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $first-color;
+
+  img {
+    width: 200px;
+    border-style: groove;
+    border-radius: 16px;
+  }
+
+  .zoom {
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  h2 {
+    margin: 10px 0 0 0;
+  }
+
+  h4 {
+    margin: 5px 0 0 0;
+  }
+
+  hr {
+    width: 50%;
+  }
+
+  table {
+    border: groove;
+    border-collapse: collapse;
+    width: auto;
+    margin-bottom: 50px;
+  }
+
+  td,
+  th {
+    border: 1px solid $first-color;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr {
+    background-color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: gray;
+    color: $first-color;
+  }
+}
