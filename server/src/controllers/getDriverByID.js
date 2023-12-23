@@ -23,6 +23,13 @@ const getDriverByID = async (req, res) => {
         return res.json(driver_api);
       }
     } else {
+      const regexUUIDv4 =
+        /^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i;
+
+      if (!regexUUIDv4.test(idDriver)) {
+        return res.status(404).json({ error: "Driver not found" });
+      }
+
       const driver_bd = await Driver.findByPk(idDriver, {
         attributes: { exclude: ["createdAt", "updatedAt"] },
         include: [
