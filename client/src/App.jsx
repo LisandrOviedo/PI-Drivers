@@ -33,6 +33,15 @@ function App() {
     }
   }
 
+  function logout() {
+    setAccess(false);
+    navigate("/");
+  }
+
+  useMemo(() => {
+    !access && navigate("/");
+  }, [access]);
+
   const { pathname } = useLocation();
 
   return (

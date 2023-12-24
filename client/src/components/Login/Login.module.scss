@@ -1,0 +1,156 @@
+.loginContainer {
+  background-image: url("/Login.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .loginMovil {
+    display: none;
+    color: $second-color;
+    text-align: center;
+
+    h1 {
+      margin: 0 0 10px 0;
+    }
+
+    @include sm {
+      display: block;
+    }
+  }
+
+  .formContainer {
+    position: absolute;
+    top: 15%;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include sm {
+        margin-top: 8em;
+      }
+
+      input {
+        background-color: $second-color;
+        width: 200px;
+        height: 30px;
+        text-align: center;
+        font-size: 0.9em;
+        border: 2px solid #4741d7;
+        border-radius: 3px;
+
+        &:focus {
+          outline: none;
+        }
+
+        &::placeholder {
+          text-align: center;
+        }
+
+        @include sm {
+          font-size: 1.2em;
+        }
+      }
+
+      p {
+        margin: 1px;
+        text-align: center;
+        color: $second-color;
+        font-size: 0.8em;
+
+        @include sm {
+          font-size: 1em;
+        }
+      }
+    }
+
+    @include sm {
+      position: revert;
+    }
+
+    .buttonContainer {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+
+      button {
+        cursor: pointer;
+        border-radius: 16px;
+        border: none;
+        width: fit-content;
+        height: 25px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 2px solid #4741d7;
+        border-radius: 3px;
+        font-weight: bold;
+
+        &:hover {
+          background-color: $third-color;
+          -webkit-text-stroke: 1px white;
+          color: white;
+        }
+
+        @include sm {
+          &:hover {
+            background-color: $third-color;
+            -webkit-text-stroke: 1px white;
+            color: white;
+          }
+        }
+      }
+
+      .linkNav {
+        color: $second-color;
+        text-decoration: none;
+
+        &:hover {
+          color: gray;
+        }
+
+        @include sm {
+          color: $second-color;
+
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+}
+
+.buttonContainer2 {
+  position: absolute;
+  bottom: 5%;
+
+  .linkNav {
+    color: $second-color;
+    text-decoration: none;
+
+    &:hover {
+      -webkit-text-stroke: 1px $third-color;
+      color: white;
+      font-weight: bold;
+    }
+
+    @include sm {
+      font-size: 1.2em;
+      color: $second-color;
+
+      &:hover {
+        -webkit-text-stroke: 1px $third-color;
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+}

@@ -70,11 +70,13 @@ export default function Login({ login }) {
             <button type="Submit" onClick={handleSubmit}>
               Log in
             </button>
-            <Link className={styles.linkNav} to="/register">
-              <span>You do not have an account? Sign up here</span>
-            </Link>
           </div>
         </form>
+      </div>
+      <div className={styles.buttonContainer2}>
+        <Link className={styles.linkNav} to="/register">
+          <span>You do not have an account? Sign up here</span>
+        </Link>
       </div>
     </div>
   );
