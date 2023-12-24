@@ -5,7 +5,7 @@ import styles from "./Landing.module.scss";
 
 export default function Landing() {
   useEffect(() => {
-    document.title = "Drivers, by Lisandro";
+    document.title = "Drivers, by Lisandro Oviedo";
 
     return () => {
       document.title = "Drivers";
