@@ -8,18 +8,11 @@
   justify-content: center;
   position: relative;
 
-  .loginMovil {
-    display: none;
-    color: $second-color;
-    text-align: center;
-
-    h1 {
-      margin: 0 0 10px 0;
-    }
-
-    @include sm {
-      display: block;
-    }
+  img {
+    position: absolute;
+    width: 3em;
+    left: 1em;
+    top: 0.5em;
   }
 
   .formContainer {
@@ -60,8 +53,9 @@
       p {
         margin: 1px;
         text-align: center;
-        color: $second-color;
+        color: white;
         font-size: 0.8em;
+        text-shadow: 1px 1px;
 
         @include sm {
           font-size: 1em;
@@ -133,22 +127,20 @@
   bottom: 5%;
 
   .linkNav {
-    color: $second-color;
+    color: #4741d7;
     text-decoration: none;
+    text-shadow: 1px 1px;
 
     &:hover {
       -webkit-text-stroke: 1px $third-color;
-      color: white;
       font-weight: bold;
     }
 
     @include sm {
       font-size: 1.2em;
-      color: $second-color;
 
       &:hover {
         -webkit-text-stroke: 1px $third-color;
-        color: white;
         font-weight: bold;
       }
     }

@@ -33,6 +33,27 @@ function App() {
     }
   }
 
+  async function registerUser({ email, password }) {
+    const URL_REGISTER = `${URL_SERVER}/login`;
+
+    try {
+      await axios
+        .post(URL_REGISTER, {
+          email: email,
+          password: password,
+        })
+        .then((response) => {
+          if (response.status === 201) {
+            alert("User successfully registered, you can now log in");
+            navigate("/login");
+          }
+        })
+        .catch((error) => alert(error.response.data.error));
+    } catch (error) {
+      alert(error.response.data.error);
+    }
+  }
+
   function logout() {
     setAccess(false);
     navigate("/");
@@ -61,11 +82,11 @@ function App() {
 
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login login={login} />} />
-        {/*<Route
-          path="/register"
-          element={<RegisterUser register={register} />}
-        />
         <Route
+          path="/register"
+          element={<RegisterUser register={registerUser} />}
+        />
+        {/*<Route
           path="/registerDriver"
           element={<RegisterDriver register={register} />}
         />

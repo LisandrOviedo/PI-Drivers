@@ -43,7 +43,9 @@ export default function Login({ login }) {
 
   return (
     <div className={styles.loginContainer}>
-      <div className={styles.loginMovil}></div>
+      <Link to="/">
+        <img src="/Logo.svg" alt="Inicio" />
+      </Link>
       <div className={styles.formContainer}>
         <form>
           <input

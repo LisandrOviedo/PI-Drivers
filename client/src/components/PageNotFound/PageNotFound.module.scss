@@ -1,14 +1,28 @@
 .divContainer {
+  background-color: gray;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+
+  .home {
+    position: absolute;
+    width: 3em;
+    left: 1em;
+    top: 0.5em;
+  }
 
   h1,
   h2 {
     color: $first-color;
+    margin: 0;
   }
 
   h2 {
     margin: 0;
+  }
+
+  img {
+    width: 6em;
   }
 }
