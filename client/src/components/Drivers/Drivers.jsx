@@ -4,7 +4,7 @@ import styles from "./Drivers.module.scss";
 
 export default function Drivers() {
   useEffect(() => {
-    document.title = "Drivers";
+    document.title = "Home - Drivers";
 
     return () => {
       document.title = "Drivers";
