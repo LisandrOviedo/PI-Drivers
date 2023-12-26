@@ -67,15 +67,15 @@ function App() {
 
   return (
     <div>
-      {/* {pathname !== "/" &&
+      {pathname !== "/" &&
         pathname !== "/register" &&
         pathname !== "/login" && (
           <NavBar
-            onSearch={onSearch}
-            addRandomCharacter={addRandomCharacter}
+            // onSearch={onSearch}
+            // addRandomCharacter={addRandomCharacter}
             logout={logout}
           />
-        )} */}
+        )}
 
       <Routes>
         <Route path="*" element={<PageNotFound />} />
@@ -89,12 +89,16 @@ function App() {
         {/*<Route
           path="/registerDriver"
           element={<RegisterDriver register={register} />}
-        />
+        />*/}
 
         <Route
           path="/home"
-          element={<Drivers characters={characters} onClose={onClose} />}
-        /> */}
+          element={
+            <Drivers
+            // characters={characters} onClose={onClose}
+            />
+          }
+        />
 
         <Route path="/about" element={<AboutMe />} />
 

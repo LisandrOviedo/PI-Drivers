@@ -11,5 +11,5 @@ export default function Drivers() {
     };
   }, []);
 
-  return <div></div>;
+  return <div className={styles.driversContainer}></div>;
 }
