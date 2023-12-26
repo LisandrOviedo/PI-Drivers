@@ -1,0 +1,90 @@
+.navContainer {
+  opacity: 0.9;
+  background-image: url("/Home.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+  color: $first-color;
+  min-height: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+  align-items: center;
+  min-height: 80px;
+
+  @include sm {
+    flex-direction: column;
+    padding: 0px 10px;
+    padding-bottom: 16px;
+  }
+
+  .firstSection {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    font-size: 1.3em;
+
+    @include sm {
+      padding: 10px 10px 20px 10px;
+    }
+
+    .linkLogo {
+      color: $first-color;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .secondSection {
+    display: flex;
+    flex: 3.5;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    min-height: 80px;
+
+    @include sm {
+      width: 100%;
+      min-height: auto;
+    }
+
+    .navigate {
+      display: flex;
+      gap: 12px;
+
+      .linkNav {
+        color: $first-color;
+        text-decoration: none;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
+      button {
+        text-decoration: none;
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 0;
+        font-family: inherit;
+        font-size: inherit;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    .searchBar {
+      display: flex;
+    }
+  }
+}

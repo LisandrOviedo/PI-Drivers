@@ -56,7 +56,7 @@ function App() {
 
   function logout() {
     setAccess(false);
-    navigate("/");
+    navigate("/login");
   }
 
   useMemo(() => {

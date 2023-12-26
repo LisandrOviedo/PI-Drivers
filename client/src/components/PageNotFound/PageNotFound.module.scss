@@ -1,16 +1,12 @@
 .divContainer {
-  background-color: gray;
+  background-image: url("/Home.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-
-  .home {
-    position: absolute;
-    width: 3em;
-    left: 1em;
-    top: 0.5em;
-  }
 
   h1,
   h2 {
