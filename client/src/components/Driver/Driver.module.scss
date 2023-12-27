@@ -1,4 +1,4 @@
-.cardContainer {
+.driverContainer {
   background-color: $second-color;
   border-style: groove;
   border-radius: 16px;
@@ -7,6 +7,7 @@
   width: 200px;
   max-height: auto;
   position: relative;
+  text-transform: capitalize;
 
   @include sm {
     width: 150px;
@@ -39,6 +40,7 @@
     .name {
       margin-left: 10px;
       text-align: center;
+      text-shadow: 2px 2px $third-color;
 
       &:hover {
         color: gray;
@@ -49,12 +51,15 @@
     h5 {
       color: $first-color;
       margin: 0;
-      text-transform: capitalize;
     }
 
     p {
       margin-left: 10px;
-      text-transform: capitalize;
+    }
+
+    b {
+      border-bottom: 2px solid $third-color;
+      line-height: 1.5;
     }
   }
 }

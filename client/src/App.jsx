@@ -81,7 +81,11 @@ function App() {
   }, [access]);
 
   async function onSearch(name) {
-    const URL_SEARCH = `${URL_SERVER}/drivers?name=${name}`;
+    if (name) {
+      var URL_SEARCH = `${URL_SERVER}/drivers?name=${name}`;
+    } else {
+      var URL_SEARCH = `${URL_SERVER}/`;
+    }
 
     try {
       const { data } = await axios(URL_SEARCH);

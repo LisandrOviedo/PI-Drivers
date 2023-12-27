@@ -13,7 +13,7 @@ export default function PageNotFound() {
   }, []);
 
   return (
-    <div className={styles.divContainer}>
+    <div className={styles.errorContainer}>
       <br />
       <img src="/PageNotFound.svg" alt="PageNotFound" />
       <h1>🤔 ¡Error 404! 🤨</h1>

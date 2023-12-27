@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { addDriver, removeDriver } from "../../redux/actions";
 import { connect } from "react-redux";
-import { useEffect } from "react";
 
 import styles from "./Driver.module.scss";
 
@@ -9,7 +8,7 @@ export function Driver(props) {
   const { id, name, last_name, image, teams } = props;
 
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.driverContainer}>
       <div className={styles.imageSection}>
         <Link className={styles.link} to={`/detail/${id}`}>
           <img className={styles.zoom} src={image} alt="" />

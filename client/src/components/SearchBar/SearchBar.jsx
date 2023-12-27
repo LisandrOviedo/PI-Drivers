@@ -10,11 +10,7 @@ export default function SearchBar(props) {
   };
 
   const handleSearch = (name) => {
-    if (!name) {
-      alert("Enter a name first!");
-    } else {
-      props.onSearch(name);
-    }
+    props.onSearch(name);
   };
 
   const handleKeyDown = (event) => {
