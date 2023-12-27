@@ -8,6 +8,10 @@
   align-items: center;
   color: $first-color;
 
+  h1 {
+    border-bottom: 3px solid $third-color;
+  }
+
   img {
     width: 200px;
     border-style: groove;
@@ -32,6 +36,9 @@
 
   hr {
     width: 50%;
+    height: 3px;
+    border: none;
+    background-color: $third-color;
   }
 
   table {
@@ -49,11 +56,11 @@
   }
 
   tr {
-    background-color: white;
+    background-color: $third-color;
   }
 
   tr:nth-child(even) {
-    background-color: gray;
+    background-color: $second-color;
     color: $first-color;
   }
 }

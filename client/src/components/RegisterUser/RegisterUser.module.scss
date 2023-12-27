@@ -13,9 +13,10 @@
     width: 3em;
     left: 1em;
     top: 0.5em;
+    transition: transform 0.2s;
 
     &:hover {
-      opacity: 0.5;
+      transform: scale(1.3);
     }
   }
 
