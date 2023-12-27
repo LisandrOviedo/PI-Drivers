@@ -6,29 +6,7 @@ import { useEffect } from "react";
 import styles from "./Driver.module.scss";
 
 export function Driver(props) {
-  useEffect(() => {
-    addDriver({
-      id: props.id,
-      name: props.name,
-      last_name: props.last_name,
-      description: props.description,
-      image: props.image,
-      nationality: props.nationality,
-      birthdate: props.birthdate,
-      teams: props.teams,
-    });
-  }, []);
-
-  const {
-    id,
-    name,
-    last_name,
-    description,
-    image,
-    nationality,
-    birthdate,
-    teams,
-  } = props;
+  const { id, name, last_name, image, teams } = props;
 
   return (
     <div className={styles.cardContainer}>
@@ -45,15 +23,6 @@ export function Driver(props) {
           </h4>
         </Link>
         <hr />
-        <p>
-          <b>Description:</b> {description}
-        </p>
-        <p>
-          <b>Nationality:</b> {nationality}
-        </p>
-        <p>
-          <b>Birthdate:</b> {birthdate}
-        </p>
         <p>
           <b>Teams:</b> {teams}
         </p>

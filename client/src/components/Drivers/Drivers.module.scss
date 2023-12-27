@@ -1,10 +1,11 @@
-.driversContainer {
+body {
   background-image: url("/Home.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  height: 100vh;
+}
 
+.driversContainer {
   h1 {
     text-align: center;
     margin: 0;

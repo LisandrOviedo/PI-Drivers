@@ -15,31 +15,11 @@
   img {
     border-radius: 16px 16px 0 0;
     width: 200px;
+    max-height: 250px;
 
     @include sm {
       width: 150px;
-    }
-  }
-
-  .favButton {
-    position: absolute;
-    left: 5px;
-    top: 5px;
-    background-color: transparent;
-    border: none;
-  }
-
-  .closeCard {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    cursor: pointer;
-    border-radius: 50%;
-    height: 32px;
-    background-color: $second-color;
-
-    &:hover {
-      background-color: gray;
+      max-height: 200px;
     }
   }
 
