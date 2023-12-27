@@ -6,12 +6,12 @@ import {
   ORDER_DRIVER,
 } from "./action-types";
 
-export const addFav = (character) => {
+export const addDriver = (driver) => {
   try {
     return async (dispatch) => {
       return dispatch({
         type: ADD_DRIVER,
-        payload: character,
+        payload: driver,
       });
     };
   } catch (error) {
@@ -19,7 +19,7 @@ export const addFav = (character) => {
   }
 };
 
-export const removeFav = (id) => {
+export const removeDriver = (id) => {
   try {
     return async (dispatch) => {
       return dispatch({

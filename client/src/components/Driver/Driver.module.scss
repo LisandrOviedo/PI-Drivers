@@ -1,0 +1,80 @@
+.cardContainer {
+  background-color: $second-color;
+  border-style: groove;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  max-height: auto;
+  position: relative;
+
+  @include sm {
+    width: 150px;
+  }
+
+  img {
+    border-radius: 16px 16px 0 0;
+    width: 200px;
+
+    @include sm {
+      width: 150px;
+    }
+  }
+
+  .favButton {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    background-color: transparent;
+    border: none;
+  }
+
+  .closeCard {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 32px;
+    background-color: $second-color;
+
+    &:hover {
+      background-color: gray;
+    }
+  }
+
+  .zoom {
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .infoSection {
+    .link {
+      text-decoration: none;
+    }
+
+    .name {
+      margin-left: 10px;
+      text-align: center;
+
+      &:hover {
+        color: gray;
+      }
+    }
+
+    h4,
+    h5 {
+      color: $first-color;
+      margin: 0;
+      text-transform: capitalize;
+    }
+
+    p {
+      margin-left: 10px;
+      text-transform: capitalize;
+    }
+  }
+}

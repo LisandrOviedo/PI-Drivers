@@ -13,7 +13,7 @@ import RegisterDriver from "./components/RegisterDriver/RegisterDriver";
 import RegisterUser from "./components/RegisterUser/RegisterUser";
 
 function App() {
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState({ access: false });
   const navigate = useNavigate();
   const URL_SERVER = import.meta.env.VITE_URL_SERVER;
 
@@ -55,12 +55,12 @@ function App() {
   }
 
   function logout() {
-    setAccess(false);
+    setAccess({ access: false });
     navigate("/login");
   }
 
   useMemo(() => {
-    !access && navigate("/");
+    !access.access && navigate("/");
   }, [access]);
 
   const [drivers, setDrivers] = useState([]);
@@ -71,19 +71,13 @@ function App() {
     try {
       const { data } = await axios(URL_SEARCH);
 
-      if (data.name) {
-        setDrivers(() => [data]);
+      if (data[0].name) {
+        setDrivers(data);
       }
     } catch (error) {
       window.alert(error.response.data.error);
     }
   }
-
-  const onClose = (id) => {
-    setDrivers((oldDrivers) =>
-      oldDrivers.filter((driver) => Number(driver.id) !== Number(id))
-    );
-  };
 
   const [driversPerPage, setDriversPerPage] = useState(9);
 
@@ -115,10 +109,7 @@ function App() {
           element={<RegisterDriver register={register} />}
         />*/}
 
-        <Route
-          path="/home"
-          element={<Drivers drivers={drivers} onClose={onClose} />}
-        />
+        <Route path="/home" element={<Drivers drivers={drivers} />} />
 
         <Route path="/about" element={<AboutMe />} />
 
