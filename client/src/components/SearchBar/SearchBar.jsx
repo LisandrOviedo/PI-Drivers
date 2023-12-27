@@ -28,7 +28,7 @@ export default function SearchBar(props) {
       <input
         id="input"
         type="text"
-        placeholder="Enter a name"
+        placeholder="Search by name"
         value={name}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
