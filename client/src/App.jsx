@@ -63,6 +63,14 @@ function App() {
     !access && navigate("/");
   }, [access]);
 
+  const onClose = (id) => {
+    setDrivers((oldDrivers) =>
+      oldDrivers.filter((driver) => Number(driver.id) !== Number(id))
+    );
+  };
+
+  const [drivers, setDrivers] = useState([]);
+
   const { pathname } = useLocation();
 
   return (
@@ -93,11 +101,7 @@ function App() {
 
         <Route
           path="/home"
-          element={
-            <Drivers
-            // characters={characters} onClose={onClose}
-            />
-          }
+          element={<Drivers drivers={drivers} onClose={onClose} />}
         />
 
         <Route path="/about" element={<AboutMe />} />
