@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 // import RandomCharacter from "../RandomCharacter/RandomCharacter";
-// import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 
 import Logo from "/Logo.svg";
 
@@ -29,8 +29,8 @@ export default function NavBar(props) {
         </div>
 
         <div className={styles.searchBar}>
-          {/* <SearchBar onSearch={props.onSearch} />
-          <RandomCharacter addRandomCharacter={props.addRandomCharacter} /> */}
+          <SearchBar onSearch={props.onSearch} />
+          {/* <RandomCharacter addRandomCharacter={props.addRandomCharacter} /> */}
         </div>
       </div>
     </nav>

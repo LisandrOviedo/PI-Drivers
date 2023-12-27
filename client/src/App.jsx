@@ -63,13 +63,29 @@ function App() {
     !access && navigate("/");
   }, [access]);
 
+  const [drivers, setDrivers] = useState([]);
+
+  async function onSearch(name) {
+    const URL_SEARCH = `${URL_SERVER}/drivers?name=${name}`;
+
+    try {
+      const { data } = await axios(URL_SEARCH);
+
+      if (data.name) {
+        setDrivers(() => [data]);
+      }
+    } catch (error) {
+      window.alert(error.response.data.error);
+    }
+  }
+
   const onClose = (id) => {
     setDrivers((oldDrivers) =>
       oldDrivers.filter((driver) => Number(driver.id) !== Number(id))
     );
   };
 
-  const [drivers, setDrivers] = useState([]);
+  const [driversPerPage, setDriversPerPage] = useState(9);
 
   const { pathname } = useLocation();
 
@@ -79,7 +95,7 @@ function App() {
         pathname !== "/register" &&
         pathname !== "/login" && (
           <NavBar
-            // onSearch={onSearch}
+            onSearch={onSearch}
             // addRandomCharacter={addRandomCharacter}
             logout={logout}
           />
