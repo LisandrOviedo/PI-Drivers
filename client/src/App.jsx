@@ -18,7 +18,7 @@ function App() {
   const URL_SERVER = import.meta.env.VITE_URL_SERVER;
 
   async function login({ email, password }) {
-    const URL_LOGIN = `${URL_SERVER}/login/?email=${email}&password=${password}`;
+    const URL_LOGIN = `${URL_SERVER}/login/?email=${email.toLowerCase()}&password=${password}`;
 
     try {
       const { data } = await axios(URL_LOGIN);
@@ -39,7 +39,7 @@ function App() {
     try {
       await axios
         .post(URL_REGISTER, {
-          email: email,
+          email: email.toLowerCase(),
           password: password,
         })
         .then((response) => {

@@ -3,13 +3,15 @@ const { User } = require("../db");
 const postUser = async (req, res) => {
   const { email, password } = req.body;
 
+  const emailLower = email.toLowerCase();
+
   if (!email || !password) {
     return res.status(400).json({ error: "Missing data" });
   }
 
   try {
     const [user, created] = await User.findOrCreate({
-      where: { email },
+      where: { email: emailLower },
       defaults: { password },
     });
 
