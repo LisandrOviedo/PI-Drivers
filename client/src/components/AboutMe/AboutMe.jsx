@@ -16,7 +16,7 @@ export default function About() {
     let edad = hoy.getFullYear() - 1998;
     let mes = hoy.getMonth() - 11;
 
-    if (mes < 0 || (mes === 0 && hoy.getDate() > 24)) {
+    if (mes < 0 || (mes === 0 && hoy.getDate() <= 24)) {
       edad--;
     }
 
