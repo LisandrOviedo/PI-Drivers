@@ -16,6 +16,8 @@ export default function Drivers(props) {
     <div className={styles.driversContainer}>
       <br />
       <h1>Drivers</h1>
+      <br />
+      <br />
       <div className={styles.cardsContainer}>
         {props.drivers.map((driver) => (
           <Driver

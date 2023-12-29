@@ -9,6 +9,7 @@
   color: $first-color;
 
   h1 {
+    text-shadow: 3px 3px $third-color;
     border-bottom: 3px solid $third-color;
   }
 

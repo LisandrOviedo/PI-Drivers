@@ -87,10 +87,10 @@ function App() {
   async function registerDriver({
     name,
     last_name,
-    nationality,
-    image,
-    birthday,
     description,
+    image,
+    nationality,
+    birthdate,
     teams,
   }) {
     const URL_REGISTERDRIVER = `${URL_SERVER}/drivers`;
@@ -100,10 +100,10 @@ function App() {
         .post(URL_REGISTERDRIVER, {
           name: name,
           last_name: last_name,
-          nationality: nationality,
-          image: image,
-          birthday: birthday,
           description: description,
+          image: image,
+          nationality: nationality,
+          birthdate: birthdate,
           teams: teams,
         })
         .then((response) => {

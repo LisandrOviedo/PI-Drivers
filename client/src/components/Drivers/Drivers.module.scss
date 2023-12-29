@@ -6,13 +6,16 @@ body {
 }
 
 .driversContainer {
+  text-align: center;
+
   h1 {
-    text-align: center;
-    margin: 0;
+    display: inline;
     text-shadow: 3px 3px $third-color;
+    border-bottom: 3px solid $third-color;
   }
 
   .cardsContainer {
+    text-align: initial;
     padding: 10px 24px 24px 24px;
     display: flex;
     flex-wrap: wrap;

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { validator } from "./validator";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 import Team from "../Team/Team";
 
@@ -9,6 +8,8 @@ import styles from "./RegisterDriver.module.scss";
 
 export default function RegisterDriver({ teams, registerDriver }) {
   const teamsSelected = [];
+
+  const teamsSelectedFINAL = teamsSelected.join(", ");
 
   useEffect(() => {
     document.title = "Driver Register - Drivers";
@@ -21,10 +22,10 @@ export default function RegisterDriver({ teams, registerDriver }) {
   const [driverData, setDriverData] = useState({
     name: "",
     last_name: "",
-    nationality: "",
-    image: "",
-    birthdate: "",
     description: "",
+    image: "",
+    nationality: "",
+    birthdate: "",
     teams: "",
   });
 
@@ -43,28 +44,22 @@ export default function RegisterDriver({ teams, registerDriver }) {
 
   const addTeam = (event) => {
     event.preventDefault();
-    var select = document.getElementById("teams");
+    var select = document.getElementById("teamsList");
     var value = select.options[select.selectedIndex].value;
 
     if (!teamsSelected.includes(value)) {
       teamsSelected.push(value);
-
-      setDriverData({ ...driverData, teams: teamsSelected.join(", ") });
-
-      document.getElementById(
-        "labelTeams"
-      ).innerHTML = `Teams: ${teamsSelected.join(", ")}`;
     } else {
       alert("Ya agregaste este team");
     }
+
+    console.log(teamsSelectedFINAL);
   };
 
   const deleteTeam = (event) => {
     event.preventDefault();
     teamsSelected.pop();
-    document.getElementById(
-      "labelTeams"
-    ).innerHTML = `Teams: ${teamsSelected.join(", ")}`;
+    console.log(teamsSelectedFINAL);
   };
 
   const handleSubmit = (event) => {
@@ -142,7 +137,7 @@ export default function RegisterDriver({ teams, registerDriver }) {
           />
           <p>{errors.description}</p>
           <br />
-          <select id="teams" name="teams">
+          <select id="teamsList" name="teamsList">
             {teams.map((team) => (
               <Team key={team.id} id={team.id} name={team.name} />
             ))}
@@ -150,7 +145,12 @@ export default function RegisterDriver({ teams, registerDriver }) {
           <button onClick={addTeam}>Add Team</button>
           <button onClick={deleteTeam}>Delete Last Team</button>
           <br />
-          <label id="labelTeams">Teams: </label>
+          <label
+            id="teams"
+            name="teams"
+            value={driverData.teams}
+            onChange={handleChange}
+          ></label>
 
           <div className={styles.buttonContainer}>
             <button type="Submit" onClick={handleSubmit}>
