@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import { validator } from "./validator";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+import Team from "../Team/Team";
 
 import styles from "./RegisterDriver.module.scss";
 
-export default function RegisterDriver({ registerDriver }) {
+export default function RegisterDriver({ teams, registerDriver }) {
+  const teamsSelected = [];
+
   useEffect(() => {
     document.title = "Driver Register - Drivers";
 
@@ -36,11 +41,38 @@ export default function RegisterDriver({ registerDriver }) {
     );
   };
 
+  const addTeam = (event) => {
+    event.preventDefault();
+    var select = document.getElementById("teams");
+    var value = select.options[select.selectedIndex].value;
+
+    if (!teamsSelected.includes(value)) {
+      teamsSelected.push(value);
+
+      setDriverData({ ...driverData, teams: teamsSelected.join(", ") });
+
+      document.getElementById(
+        "labelTeams"
+      ).innerHTML = `Teams: ${teamsSelected.join(", ")}`;
+    } else {
+      alert("Ya agregaste este team");
+    }
+  };
+
+  const deleteTeam = (event) => {
+    event.preventDefault();
+    teamsSelected.pop();
+    document.getElementById(
+      "labelTeams"
+    ).innerHTML = `Teams: ${teamsSelected.join(", ")}`;
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (Object.entries(errors).length === 0) {
       registerDriver(driverData);
+      console.log(driverData);
     } else {
       window.alert("Please check the fields and try again");
     }
@@ -109,13 +141,23 @@ export default function RegisterDriver({ registerDriver }) {
             placeholder="Description"
           />
           <p>{errors.description}</p>
+          <br />
+          <select id="teams" name="teams">
+            {teams.map((team) => (
+              <Team key={team.id} id={team.id} name={team.name} />
+            ))}
+          </select>
+          <button onClick={addTeam}>Add Team</button>
+          <button onClick={deleteTeam}>Delete Last Team</button>
+          <br />
+          <label id="labelTeams">Teams: </label>
 
           <div className={styles.buttonContainer}>
             <button type="Submit" onClick={handleSubmit}>
               Create Driver
             </button>
             <Link className={styles.linkNav} to="/home">
-              <span>CANCEL</span>
+              <span>Cancel</span>
             </Link>
           </div>
         </form>

@@ -7,9 +7,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: $second-color;
 
   h1 {
-    color: $second-color;
     text-shadow: 3px 3px $third-color;
     border-bottom: 3px solid $third-color;
   }

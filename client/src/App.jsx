@@ -15,6 +15,7 @@ import RegisterUser from "./components/RegisterUser/RegisterUser";
 function App() {
   const [access, setAccess] = useState({ access: false });
   const [drivers, setDrivers] = useState([]);
+  const [teams, setTeams] = useState([]);
   const navigate = useNavigate();
   const URL_SERVER = import.meta.env.VITE_URL_SERVER;
 
@@ -26,6 +27,20 @@ function App() {
 
       if (data[0].name) {
         setDrivers(data);
+      }
+    } catch (error) {
+      window.alert(error.response.data.error);
+    }
+  }
+
+  async function searchAllTeams() {
+    const URL_ALLTEAMS = `${URL_SERVER}/teams`;
+
+    try {
+      const { data } = await axios(URL_ALLTEAMS);
+
+      if (data[0].name) {
+        setTeams(data);
       }
     } catch (error) {
       window.alert(error.response.data.error);
@@ -108,9 +123,12 @@ function App() {
     alert("See you later! We hope to see you again soon!");
   }
 
-  useMemo(async () => {
+  useMemo(() => {
     !access.access && navigate("/login");
+    searchAllTeams();
   }, [access]);
+
+  drivers.length === 0 && searchAll();
 
   async function onSearch(name) {
     if (name) {
@@ -134,10 +152,6 @@ function App() {
 
   const { pathname } = useLocation();
 
-  if (pathname === "/home") {
-    searchAll();
-  }
-
   return (
     <div>
       {pathname !== "/" &&
@@ -155,7 +169,9 @@ function App() {
         />
         <Route
           path="/registerDriver"
-          element={<RegisterDriver registerDriver={registerDriver} />}
+          element={
+            <RegisterDriver teams={teams} registerDriver={registerDriver} />
+          }
         />
 
         <Route path="/home" element={<Drivers drivers={drivers} />} />
