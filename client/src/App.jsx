@@ -69,14 +69,46 @@ function App() {
     }
   }
 
+  async function registerDriver({
+    name,
+    last_name,
+    nationality,
+    image,
+    birthday,
+    description,
+    teams,
+  }) {
+    const URL_REGISTERDRIVER = `${URL_SERVER}/drivers`;
+
+    try {
+      await axios
+        .post(URL_REGISTERDRIVER, {
+          name: name,
+          last_name: last_name,
+          nationality: nationality,
+          image: image,
+          birthday: birthday,
+          description: description,
+          teams: teams,
+        })
+        .then((response) => {
+          if (response.status === 201) {
+            alert("Driver successfully registered!");
+            navigate(`/detail/${response.data.id}`);
+          }
+        })
+        .catch((error) => alert(error.response.data.error));
+    } catch (error) {
+      alert(error.response.data.error);
+    }
+  }
+
   function logout() {
     setAccess({ access: false });
     alert("See you later! We hope to see you again soon!");
   }
 
   useMemo(async () => {
-    access.access && searchAll();
-
     !access.access && navigate("/login");
   }, [access]);
 
@@ -102,17 +134,15 @@ function App() {
 
   const { pathname } = useLocation();
 
+  if (pathname === "/home") {
+    searchAll();
+  }
+
   return (
     <div>
       {pathname !== "/" &&
         pathname !== "/register" &&
-        pathname !== "/login" && (
-          <NavBar
-            onSearch={onSearch}
-            // addRandomCharacter={addRandomCharacter}
-            logout={logout}
-          />
-        )}
+        pathname !== "/login" && <NavBar onSearch={onSearch} logout={logout} />}
 
       <Routes>
         <Route path="*" element={<PageNotFound />} />
@@ -123,10 +153,10 @@ function App() {
           path="/register"
           element={<RegisterUser register={registerUser} />}
         />
-        {/*<Route
+        <Route
           path="/registerDriver"
-          element={<RegisterDriver register={register} />}
-        />*/}
+          element={<RegisterDriver registerDriver={registerDriver} />}
+        />
 
         <Route path="/home" element={<Drivers drivers={drivers} />} />
 

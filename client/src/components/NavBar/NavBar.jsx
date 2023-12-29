@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-// import RandomCharacter from "../RandomCharacter/RandomCharacter";
 import SearchBar from "../SearchBar/SearchBar";
 
 import Logo from "/Logo.svg";
@@ -12,14 +11,14 @@ export default function NavBar(props) {
     <nav className={styles.navContainer}>
       <div className={styles.firstSection}>
         <Link className={styles.linkLogo} to="/home">
-          <img src={Logo} alt="Morty Logo" width="50px" />
+          <img src={Logo} alt="Driver Logo" width="50px" />
           <span>Drivers</span>
         </Link>
       </div>
 
       <div className={styles.secondSection}>
         <div className={styles.navigate}>
-          <Link className={styles.linkNav} to="/createADriver">
+          <Link className={styles.linkNav} to="/registerDriver">
             <span>New Driver</span>
           </Link>
           <Link className={styles.linkNav} to="/about">
@@ -30,7 +29,6 @@ export default function NavBar(props) {
 
         <div className={styles.searchBar}>
           <SearchBar onSearch={props.onSearch} />
-          {/* <RandomCharacter addRandomCharacter={props.addRandomCharacter} /> */}
         </div>
       </div>
     </nav>
