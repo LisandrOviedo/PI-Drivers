@@ -42,6 +42,10 @@
           color: $second-color;
         }
       }
+
+      label {
+        color: $second-color;
+      }
     }
 
     @include sm {

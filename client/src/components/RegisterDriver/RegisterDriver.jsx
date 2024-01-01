@@ -47,8 +47,6 @@ export default function RegisterDriver({ teams, registerDriver }) {
     let select = document.getElementById("teamsList");
     let value = select.options[select.selectedIndex].value;
 
-    console.log("Estado: " + driverData["teams"]);
-
     let validacion = driverData["teams"].includes(value);
 
     if (validacion) {
@@ -70,8 +68,13 @@ export default function RegisterDriver({ teams, registerDriver }) {
 
   const deleteTeam = (event) => {
     event.preventDefault();
-    teamsSelected.pop();
-    console.log(teamsSelected.join(", "));
+
+    let equipos = driverData["teams"].split(", ").slice(0, -1).join(", ");
+
+    setDriverData({
+      ...driverData,
+      teams: equipos,
+    });
   };
 
   const handleSubmit = (event) => {
@@ -157,12 +160,7 @@ export default function RegisterDriver({ teams, registerDriver }) {
           <button onClick={addTeam}>Add Team</button>
           <button onClick={deleteTeam}>Delete Last Team</button>
           <br />
-          <label
-            id="teams"
-            name="teams"
-            value={driverData.teams}
-            onChange={handleChange}
-          ></label>
+          <label id="teams">Teams Seleccionados: {driverData.teams}</label>
 
           <div className={styles.buttonContainer}>
             <button type="Submit" onClick={handleSubmit}>
