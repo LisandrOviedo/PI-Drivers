@@ -29,6 +29,7 @@ const getAllTeams = async (req, res) => {
 
     const getAllTeamsDB = await Team.findAll({
       attributes: ["id", "name"],
+      order: [["name", "ASC"]],
     });
 
     return res.json(getAllTeamsDB);

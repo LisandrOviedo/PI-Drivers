@@ -78,7 +78,6 @@ export default function RegisterDriver({ teams, registerDriver }) {
 
     if (Object.entries(errors).length === 0) {
       registerDriver(driverData);
-      console.log(driverData);
     } else {
       window.alert("Please check the fields and try again");
     }
@@ -153,8 +152,12 @@ export default function RegisterDriver({ teams, registerDriver }) {
               <Team key={team.id} id={team.id} name={team.name} />
             ))}
           </select>
-          <button onClick={addTeam}>Add Team</button>
-          <button onClick={deleteTeam}>Delete Last Team</button>
+          <button className={styles.addTeam} onClick={addTeam}>
+            Add Team
+          </button>
+          <button className={styles.deleteTeam} onClick={deleteTeam}>
+            Delete Last Team
+          </button>
           <br />
           <label id="teams">Teams Seleccionados: {driverData.teams}</label>
 
@@ -162,9 +165,7 @@ export default function RegisterDriver({ teams, registerDriver }) {
             <button type="Submit" onClick={handleSubmit}>
               Create Driver
             </button>
-            <Link className={styles.linkNav} to="/home">
-              <span>Cancel</span>
-            </Link>
+            <br />
           </div>
         </form>
       </div>

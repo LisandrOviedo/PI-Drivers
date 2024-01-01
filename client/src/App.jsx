@@ -109,6 +109,7 @@ function App() {
         .then((response) => {
           if (response.status === 201) {
             alert("Driver successfully registered!");
+            searchAll();
             navigate(`/detail/${response.data.id}`);
           }
         })
