@@ -7,9 +7,9 @@ import Team from "../Team/Team";
 import styles from "./RegisterDriver.module.scss";
 
 export default function RegisterDriver({ teams, registerDriver }) {
-  const teamsSelected = [];
-
-  const teamsSelectedFINAL = teamsSelected.join(", ");
+  const teamsSelected = {
+    name: "",
+  };
 
   useEffect(() => {
     document.title = "Driver Register - Drivers";
@@ -44,22 +44,34 @@ export default function RegisterDriver({ teams, registerDriver }) {
 
   const addTeam = (event) => {
     event.preventDefault();
-    var select = document.getElementById("teamsList");
-    var value = select.options[select.selectedIndex].value;
+    let select = document.getElementById("teamsList");
+    let value = select.options[select.selectedIndex].value;
 
-    if (!teamsSelected.includes(value)) {
-      teamsSelected.push(value);
+    console.log("Estado: " + driverData["teams"]);
+
+    let validacion = driverData["teams"].includes(value);
+
+    if (validacion) {
+      return alert("Ya agregaste este team");
     } else {
-      alert("Ya agregaste este team");
+      if (driverData["teams"].length == 0) {
+        setDriverData({
+          ...driverData,
+          teams: value,
+        });
+      } else {
+        setDriverData({
+          ...driverData,
+          teams: driverData["teams"] + ", " + value,
+        });
+      }
     }
-
-    console.log(teamsSelectedFINAL);
   };
 
   const deleteTeam = (event) => {
     event.preventDefault();
     teamsSelected.pop();
-    console.log(teamsSelectedFINAL);
+    console.log(teamsSelected.join(", "));
   };
 
   const handleSubmit = (event) => {
