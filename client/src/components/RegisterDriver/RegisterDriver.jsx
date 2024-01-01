@@ -7,10 +7,6 @@ import Team from "../Team/Team";
 import styles from "./RegisterDriver.module.scss";
 
 export default function RegisterDriver({ teams, registerDriver }) {
-  const teamsSelected = {
-    name: "",
-  };
-
   useEffect(() => {
     document.title = "Driver Register - Drivers";
 
@@ -44,15 +40,15 @@ export default function RegisterDriver({ teams, registerDriver }) {
 
   const addTeam = (event) => {
     event.preventDefault();
-    let select = document.getElementById("teamsList");
-    let value = select.options[select.selectedIndex].value;
+    const select = document.getElementById("teamsList");
+    const value = select.options[select.selectedIndex].value;
 
-    let validacion = driverData["teams"].includes(value);
+    const validacion = driverData["teams"].includes(value);
 
     if (validacion) {
       return alert("Ya agregaste este team");
     } else {
-      if (driverData["teams"].length == 0) {
+      if (driverData["teams"].length === 0) {
         setDriverData({
           ...driverData,
           teams: value,
@@ -69,11 +65,11 @@ export default function RegisterDriver({ teams, registerDriver }) {
   const deleteTeam = (event) => {
     event.preventDefault();
 
-    let equipos = driverData["teams"].split(", ").slice(0, -1).join(", ");
+    const newTeams = driverData["teams"].split(", ").slice(0, -1).join(", ");
 
     setDriverData({
       ...driverData,
-      teams: equipos,
+      teams: newTeams,
     });
   };
 
