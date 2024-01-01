@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { validator } from "./validator";
-import { Link } from "react-router-dom";
 
 import Team from "../Team/Team";
 

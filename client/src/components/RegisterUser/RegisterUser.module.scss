@@ -24,6 +24,10 @@
     position: absolute;
     top: 15%;
 
+    @include sm {
+      position: revert;
+    }
+
     form {
       display: flex;
       flex-direction: column;
@@ -68,10 +72,6 @@
       }
     }
 
-    @include sm {
-      position: revert;
-    }
-
     .buttonContainer {
       display: flex;
       justify-content: center;
@@ -97,14 +97,6 @@
           -webkit-text-stroke: 1px white;
           color: white;
         }
-
-        @include sm {
-          &:hover {
-            background-color: $third-color;
-            -webkit-text-stroke: 1px white;
-            color: white;
-          }
-        }
       }
 
       .linkNav {
@@ -113,14 +105,6 @@
 
         &:hover {
           color: gray;
-        }
-
-        @include sm {
-          color: $second-color;
-
-          &:hover {
-            color: gray;
-          }
         }
       }
     }
@@ -139,15 +123,6 @@
     &:hover {
       -webkit-text-stroke: 1px $third-color;
       font-weight: bold;
-    }
-
-    @include sm {
-      font-size: 1.2em;
-
-      &:hover {
-        -webkit-text-stroke: 1px $third-color;
-        font-weight: bold;
-      }
     }
   }
 }

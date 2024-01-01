@@ -36,10 +36,6 @@
       p {
         margin: 0;
         text-align: center;
-
-        @include sm {
-          color: $second-color;
-        }
       }
 
       select {
@@ -65,13 +61,6 @@
         &:hover {
           color: $second-color;
           background-color: black;
-        }
-
-        @include sm {
-          &:hover {
-            color: white;
-            background-color: $first-color;
-          }
         }
       }
 
@@ -108,32 +97,7 @@
         color: $second-color;
 
         &:hover {
-          color: $second-color;
           background-color: black;
-        }
-
-        @include sm {
-          &:hover {
-            color: white;
-            background-color: $first-color;
-          }
-        }
-      }
-
-      .linkNav {
-        color: $second-color;
-        text-decoration: none;
-
-        &:hover {
-          color: gray;
-        }
-
-        @include sm {
-          color: $second-color;
-
-          &:hover {
-            color: black;
-          }
         }
       }
     }
