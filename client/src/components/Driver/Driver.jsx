@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { addDriver, removeDriver } from "../../redux/actions";
-import { connect } from "react-redux";
 
 import styles from "./Driver.module.scss";
 
-export function Driver(props) {
+export default function Driver(props) {
   const { id, name, last_name, image, teams } = props;
 
   return (
@@ -29,23 +27,3 @@ export function Driver(props) {
     </div>
   );
 }
-
-export const mapDispatchToProps = (dispatch) => {
-  return {
-    addDriver: (driver) => {
-      dispatch(addDriver(driver));
-    },
-
-    removeDriver: (id) => {
-      dispatch(removeDriver(id));
-    },
-  };
-};
-
-export const mapStateToProps = (state) => {
-  return {
-    driversFilterOrder: state.driversFilterOrder,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Driver);

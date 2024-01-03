@@ -1,16 +1,25 @@
 import { useEffect } from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+import { getDrivers } from "../../redux/actions";
+
 import Driver from "../Driver/Driver";
 import styles from "./Drivers.module.scss";
 
-export default function Drivers(props) {
+export default function Drivers() {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     document.title = "Home - Drivers";
+
+    dispatch(getDrivers());
 
     return () => {
       document.title = "Drivers";
     };
   }, []);
+
+  const allDrivers = useSelector((state) => state.allDrivers);
 
   return (
     <div className={styles.driversContainer}>
@@ -19,7 +28,7 @@ export default function Drivers(props) {
       <br />
       <br />
       <div className={styles.cardsContainer}>
-        {props.drivers.map((driver) => (
+        {allDrivers.map((driver) => (
           <Driver
             key={driver.id}
             id={driver.id}

@@ -1,32 +1,28 @@
 import {
-  ADD_DRIVER,
-  REMOVE_DRIVER,
+  GET_DRIVERS,
   FILTER_DRIVERTEAM,
   FILTER_DRIVERORIGIN,
   ORDER_DRIVERNAME,
   ORDER_DRIVERAGE,
 } from "./action-types";
 
-export const addDriver = (driver) => {
-  try {
-    return async (dispatch) => {
-      return dispatch({
-        type: ADD_DRIVER,
-        payload: driver,
-      });
-    };
-  } catch (error) {
-    window.alert(error.response.data.error);
-  }
-};
+import axios from "axios";
 
-export const removeDriver = (id) => {
+const URL_SERVER = import.meta.env.VITE_URL_SERVER;
+
+export const getDrivers = () => {
   try {
     return async (dispatch) => {
-      return dispatch({
-        type: REMOVE_DRIVER,
-        payload: id,
-      });
+      const URL_SEARCHALL = `${URL_SERVER}/`;
+
+      const { data } = await axios(URL_SEARCHALL);
+
+      if (data[0].name) {
+        return dispatch({
+          type: GET_DRIVERS,
+          payload: data,
+        });
+      }
     };
   } catch (error) {
     window.alert(error.response.data.error);

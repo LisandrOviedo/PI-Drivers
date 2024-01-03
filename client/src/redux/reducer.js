@@ -1,6 +1,5 @@
 import {
-  ADD_DRIVER,
-  REMOVE_DRIVER,
+  GET_DRIVERS,
   FILTER_DRIVERORIGIN,
   FILTER_DRIVERTEAM,
   ORDER_DRIVERNAME,
@@ -8,17 +7,14 @@ import {
 } from "./action-types";
 
 const initialState = {
-  driversFilterOrder: [],
+  driversFilter: [],
   allDrivers: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ADD_DRIVER:
-      return { ...state, driversFilterOrder: payload, allDrivers: payload };
-
-    case REMOVE_DRIVER:
-      return { ...state, driversFilterOrder: payload };
+    case GET_DRIVERS:
+      return { ...state, driversFilter: payload, allDrivers: payload };
 
     case FILTER_DRIVERTEAM:
       let copy1 = [...state.allDrivers];
@@ -26,7 +22,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       if (payload === "All") {
         return {
           ...state,
-          driversFilterOrder: copy1,
+          driversFilter: copy1,
         };
       }
 
@@ -36,7 +32,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
       return {
         ...state,
-        driversFilterOrder: filtered,
+        driversFilter: filtered,
       };
 
     case FILTER_DRIVERORIGIN:
@@ -45,7 +41,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       if (payload === "All") {
         return {
           ...state,
-          driversFilterOrder: copy2,
+          driversFilter: copy2,
         };
       }
 
@@ -61,7 +57,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
       return {
         ...state,
-        driversFilterOrder: filtered2,
+        driversFilter: filtered2,
       };
 
     case ORDER_DRIVERNAME:
@@ -69,7 +65,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
       return {
         ...state,
-        driversFilterOrder: copy3.sort((a, b) => {
+        driversFilter: copy3.sort((a, b) => {
           if (payload === "A") {
             return a.name - b.name;
           }
@@ -82,7 +78,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
       return {
         ...state,
-        driversFilterOrder: copy4.sort((a, b) => {
+        driversFilter: copy4.sort((a, b) => {
           if (payload === "A") {
             return a.birthdate - b.birthdate;
           }
