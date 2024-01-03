@@ -1,5 +1,6 @@
 import {
   GET_DRIVERS,
+  GET_TEAMS,
   FILTER_DRIVERORIGIN,
   FILTER_DRIVERTEAM,
   ORDER_DRIVERNAME,
@@ -9,12 +10,16 @@ import {
 const initialState = {
   driversFilter: [],
   allDrivers: [],
+  allTeams: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_DRIVERS:
       return { ...state, driversFilter: payload, allDrivers: payload };
+
+    case GET_TEAMS:
+      return { ...state, allTeams: payload };
 
     case FILTER_DRIVERTEAM:
       let copy1 = [...state.allDrivers];

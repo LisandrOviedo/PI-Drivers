@@ -1,5 +1,6 @@
 import {
   GET_DRIVERS,
+  GET_TEAMS,
   FILTER_DRIVERTEAM,
   FILTER_DRIVERORIGIN,
   ORDER_DRIVERNAME,
@@ -20,6 +21,23 @@ export const getDrivers = () => {
       if (data[0].name) {
         return dispatch({
           type: GET_DRIVERS,
+          payload: data,
+        });
+      }
+    };
+  } catch (error) {
+    window.alert(error.response.data.error);
+  }
+};
+
+export const getTeams = () => {
+  try {
+    return async (dispatch) => {
+      const URL_ALLTEAMS = `${URL_SERVER}/teams`;
+      const { data } = await axios(URL_ALLTEAMS);
+      if (data[0].name) {
+        return dispatch({
+          type: GET_TEAMS,
           payload: data,
         });
       }

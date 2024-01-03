@@ -14,23 +14,8 @@ import RegisterUser from "./components/RegisterUser/RegisterUser";
 
 function App() {
   const [access, setAccess] = useState({ access: false });
-  const [teams, setTeams] = useState([]);
   const navigate = useNavigate();
   const URL_SERVER = import.meta.env.VITE_URL_SERVER;
-
-  async function searchAllTeams() {
-    const URL_ALLTEAMS = `${URL_SERVER}/teams`;
-
-    try {
-      const { data } = await axios(URL_ALLTEAMS);
-
-      if (data[0].name) {
-        setTeams(data);
-      }
-    } catch (error) {
-      window.alert(error.response.data.error);
-    }
-  }
 
   async function login({ email, password }) {
     const URL_LOGIN = `${URL_SERVER}/login/?email=${email.toLowerCase()}&password=${password}`;
@@ -110,7 +95,6 @@ function App() {
 
   useMemo(() => {
     !access.access && navigate("/login");
-    searchAllTeams();
   }, [access]);
 
   async function onSearch(name) {
@@ -150,9 +134,7 @@ function App() {
         />
         <Route
           path="/registerDriver"
-          element={
-            <RegisterDriver teams={teams} registerDriver={registerDriver} />
-          }
+          element={<RegisterDriver registerDriver={registerDriver} />}
         />
 
         <Route path="/home" element={<Drivers />} />

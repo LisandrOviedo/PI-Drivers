@@ -1,18 +1,26 @@
+import { getTeams } from "../../redux/actions";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { validator } from "./validator";
 
 import Team from "../Team/Team";
 
 import styles from "./RegisterDriver.module.scss";
 
-export default function RegisterDriver({ teams, registerDriver }) {
+export default function RegisterDriver({ registerDriver }) {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     document.title = "Driver Register - Drivers";
+
+    dispatch(getTeams());
 
     return () => {
       document.title = "Drivers";
     };
   }, []);
+
+  const allTeams = useSelector((state) => state.allTeams);
 
   const [driverData, setDriverData] = useState({
     name: "",
@@ -151,7 +159,7 @@ export default function RegisterDriver({ teams, registerDriver }) {
           <p>{errors.description}</p>
           <br />
           <select id="teamsList" name="teamsList">
-            {teams.map((team) => (
+            {allTeams.map((team) => (
               <Team key={team.id} id={team.id} name={team.name} />
             ))}
           </select>
