@@ -1,10 +1,10 @@
 import axios from "axios";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 
 import AboutMe from "./components/AboutMe/AboutMe";
-import DriverDetails from "./components/DriverDetails/DriverDetails";
 import Drivers from "./components/Drivers/Drivers";
+import DriverDetails from "./components/DriverDetails/DriverDetails";
 import Landing from "./components/Landing/Landing";
 import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar/NavBar";

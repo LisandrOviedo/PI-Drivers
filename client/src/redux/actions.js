@@ -1,9 +1,10 @@
 import {
   ADD_DRIVER,
   REMOVE_DRIVER,
-  FILTER_DRIVERORIGIN,
   FILTER_DRIVERTEAM,
-  ORDER_DRIVER,
+  FILTER_DRIVERORIGIN,
+  ORDER_DRIVERNAME,
+  ORDER_DRIVERAGE,
 } from "./action-types";
 
 export const addDriver = (driver) => {
@@ -32,13 +33,6 @@ export const removeDriver = (id) => {
   }
 };
 
-export const filterCardsOrigin = (id) => {
-  return {
-    type: FILTER_DRIVERORIGIN,
-    payload: id,
-  };
-};
-
 export const filterCardsTeam = (team) => {
   return {
     type: FILTER_DRIVERTEAM,
@@ -46,9 +40,23 @@ export const filterCardsTeam = (team) => {
   };
 };
 
-export const orderCards = (order) => {
+export const filterCardsOrigin = (id) => {
   return {
-    type: ORDER_DRIVER,
+    type: FILTER_DRIVERORIGIN,
+    payload: id,
+  };
+};
+
+export const orderCardsName = (order) => {
+  return {
+    type: ORDER_DRIVERNAME,
+    payload: order,
+  };
+};
+
+export const orderCardsAge = (order) => {
+  return {
+    type: ORDER_DRIVERAGE,
     payload: order,
   };
 };

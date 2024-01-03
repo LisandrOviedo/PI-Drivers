@@ -42,31 +42,35 @@ export default function RegisterDriver({ teams, registerDriver }) {
     const select = document.getElementById("teamsList");
     const value = select.options[select.selectedIndex].value;
 
-    const validacion = driverData["teams"].includes(value);
+    const teamValidatorInclude = driverData["teams"].includes(value);
 
-    if (validacion) {
-      return alert("Ya agregaste este team");
-    } else {
-      if (driverData["teams"].length === 0) {
-        setDriverData({
-          ...driverData,
-          teams: value,
-        });
-      } else {
-        setDriverData({
-          ...driverData,
-          teams: driverData["teams"] + ", " + value,
-        });
-      }
+    if (teamValidatorInclude) {
+      return alert("You already added this team");
     }
+
+    if (driverData["teams"].length === 0) {
+      return setDriverData({
+        ...driverData,
+        teams: value,
+      });
+    }
+
+    return setDriverData({
+      ...driverData,
+      teams: driverData["teams"] + ", " + value,
+    });
   };
 
   const deleteTeam = (event) => {
     event.preventDefault();
 
+    if (driverData["teams"].length === 0) {
+      return alert("You have not currently added any team");
+    }
+
     const newTeams = driverData["teams"].split(", ").slice(0, -1).join(", ");
 
-    setDriverData({
+    return setDriverData({
       ...driverData,
       teams: newTeams,
     });
@@ -155,7 +159,7 @@ export default function RegisterDriver({ teams, registerDriver }) {
             Add Team
           </button>
           <button className={styles.deleteTeam} onClick={deleteTeam}>
-            Delete Last Team
+            Remove Last Team
           </button>
           <br />
           <label id="teams">Teams Seleccionados: {driverData.teams}</label>

@@ -3,7 +3,8 @@ import {
   REMOVE_DRIVER,
   FILTER_DRIVERORIGIN,
   FILTER_DRIVERTEAM,
-  ORDER_DRIVER,
+  ORDER_DRIVERNAME,
+  ORDER_DRIVERAGE,
 } from "./action-types";
 
 const initialState = {
@@ -63,16 +64,29 @@ const rootReducer = (state = initialState, { type, payload }) => {
         driversFilterOrder: filtered2,
       };
 
-    case ORDER_DRIVER:
+    case ORDER_DRIVERNAME:
       let copy3 = [...state.allDrivers];
 
       return {
         ...state,
         driversFilterOrder: copy3.sort((a, b) => {
           if (payload === "A") {
-            return a.id - b.id;
+            return a.name - b.name;
           }
-          return b.id - a.id;
+          return b.name - a.name;
+        }),
+      };
+
+    case ORDER_DRIVERAGE:
+      let copy4 = [...state.allDrivers];
+
+      return {
+        ...state,
+        driversFilterOrder: copy4.sort((a, b) => {
+          if (payload === "A") {
+            return a.birthdate - b.birthdate;
+          }
+          return b.birthdate - a.birthdate;
         }),
       };
 
