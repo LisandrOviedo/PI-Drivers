@@ -1,6 +1,7 @@
 import {
   GET_DRIVERS,
   GET_TEAMS,
+  GET_DRIVERBYNAME,
   FILTER_DRIVERORIGIN,
   FILTER_DRIVERTEAM,
   ORDER_DRIVERNAME,
@@ -17,6 +18,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_DRIVERS:
       return { ...state, driversFilter: payload, allDrivers: payload };
+
+    case GET_DRIVERBYNAME:
+      return { ...state, driversFilter: payload };
 
     case GET_TEAMS:
       return { ...state, allTeams: payload };

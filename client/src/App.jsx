@@ -97,31 +97,13 @@ function App() {
     !access.access && navigate("/login");
   }, [access]);
 
-  async function onSearch(name) {
-    if (name) {
-      var URL_SEARCH = `${URL_SERVER}/drivers?name=${name}`;
-    } else {
-      var URL_SEARCH = `${URL_SERVER}/`;
-    }
-
-    try {
-      const { data } = await axios(URL_SEARCH);
-
-      if (data[0].name) {
-        setDrivers(data);
-      }
-    } catch (error) {
-      window.alert(error.response.data.error);
-    }
-  }
-
   const { pathname } = useLocation();
 
   return (
     <div>
       {pathname !== "/" &&
         pathname !== "/register" &&
-        pathname !== "/login" && <NavBar onSearch={onSearch} logout={logout} />}
+        pathname !== "/login" && <NavBar logout={logout} />}
 
       <Routes>
         <Route path="*" element={<PageNotFound />} />

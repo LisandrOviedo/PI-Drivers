@@ -1,8 +1,12 @@
 import { useState } from "react";
 
+import { useDispatch } from "react-redux";
+import { getDriverByName } from "../../redux/actions";
+
 import styles from "./SearchBar.module.scss";
 
-export default function SearchBar(props) {
+export default function SearchBar() {
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
 
   const handleChange = (event) => {
@@ -10,7 +14,7 @@ export default function SearchBar(props) {
   };
 
   const handleSearch = (name) => {
-    props.onSearch(name);
+    dispatch(getDriverByName(name));
   };
 
   const handleKeyDown = (event) => {

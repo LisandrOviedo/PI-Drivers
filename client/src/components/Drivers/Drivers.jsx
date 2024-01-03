@@ -19,7 +19,7 @@ export default function Drivers() {
     };
   }, []);
 
-  const allDrivers = useSelector((state) => state.allDrivers);
+  const driversFilter = useSelector((state) => state.driversFilter);
 
   return (
     <div className={styles.driversContainer}>
@@ -28,7 +28,7 @@ export default function Drivers() {
       <br />
       <br />
       <div className={styles.cardsContainer}>
-        {allDrivers.map((driver) => (
+        {driversFilter.map((driver) => (
           <Driver
             key={driver.id}
             id={driver.id}

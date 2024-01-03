@@ -28,7 +28,7 @@ export default function NavBar(props) {
         </div>
 
         <div className={styles.searchBar}>
-          <SearchBar onSearch={props.onSearch} />
+          <SearchBar />
         </div>
       </div>
     </nav>

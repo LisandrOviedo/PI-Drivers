@@ -1,6 +1,7 @@
 import {
   GET_DRIVERS,
   GET_TEAMS,
+  GET_DRIVERBYNAME,
   FILTER_DRIVERTEAM,
   FILTER_DRIVERORIGIN,
   ORDER_DRIVERNAME,
@@ -21,6 +22,29 @@ export const getDrivers = () => {
       if (data[0].name) {
         return dispatch({
           type: GET_DRIVERS,
+          payload: data,
+        });
+      }
+    };
+  } catch (error) {
+    window.alert(error.response.data.error);
+  }
+};
+
+export const getDriverByName = (name) => {
+  try {
+    return async (dispatch) => {
+      if (name) {
+        var URL_SEARCH = `${URL_SERVER}/drivers?name=${name}`;
+      } else {
+        var URL_SEARCH = `${URL_SERVER}/`;
+      }
+
+      const { data } = await axios(URL_SEARCH);
+
+      if (data[0].name) {
+        return dispatch({
+          type: GET_DRIVERBYNAME,
           payload: data,
         });
       }
