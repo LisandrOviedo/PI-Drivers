@@ -21,7 +21,7 @@ const getDriverByName = async (req, res) => {
     if (name) {
       const driversByName = await Driver.findAll({
         where: {
-          name: { [Op.like]: `%${name}%` },
+          name: { [Op.iLike]: `%${name}%` },
         },
         limit: 15,
         attributes: { exclude: ["createdAt", "updatedAt"] },

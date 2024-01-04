@@ -80,9 +80,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         driversFilter: copy3.sort((a, b) => {
           if (payload === "Asc") {
-            return a.name - b.name;
+            return a.name.localeCompare(b.name);
           }
-          return b.name - a.name;
+          return b.name.localeCompare(a.name);
         }),
       };
 
@@ -93,9 +93,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         driversFilter: copy4.sort((a, b) => {
           if (payload === "Asc") {
-            return a.birthdate > b.birthdate;
+            return a.birthdate.localeCompare(b.birthdate);
           }
-          return a.birthdate < b.birthdate;
+          return b.birthdate.localeCompare(a.birthdate);
         }),
       };
 
