@@ -2,10 +2,10 @@ import {
   GET_DRIVERS,
   GET_TEAMS,
   GET_DRIVERBYNAME,
-  FILTER_DRIVERTEAM,
-  FILTER_DRIVERORIGIN,
-  ORDER_DRIVERNAME,
-  ORDER_DRIVERAGE,
+  FILTER_ORIGIN,
+  FILTER_TEAM,
+  ORDER_NAME,
+  ORDER_BIRTHDATE,
 } from "./action-types";
 
 import axios from "axios";
@@ -71,30 +71,30 @@ export const getTeams = () => {
   }
 };
 
-export const filterCardsTeam = (team) => {
+export const filterOrigin = (origin) => {
   return {
-    type: FILTER_DRIVERTEAM,
+    type: FILTER_ORIGIN,
+    payload: origin,
+  };
+};
+
+export const filterTeam = (team) => {
+  return {
+    type: FILTER_TEAM,
     payload: team,
   };
 };
 
-export const filterCardsOrigin = (id) => {
+export const orderName = (order) => {
   return {
-    type: FILTER_DRIVERORIGIN,
-    payload: id,
-  };
-};
-
-export const orderCardsName = (order) => {
-  return {
-    type: ORDER_DRIVERNAME,
+    type: ORDER_NAME,
     payload: order,
   };
 };
 
-export const orderCardsAge = (order) => {
+export const orderBirthdate = (order) => {
   return {
-    type: ORDER_DRIVERAGE,
+    type: ORDER_BIRTHDATE,
     payload: order,
   };
 };
