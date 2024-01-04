@@ -58,8 +58,16 @@ const rootReducer = (state = initialState, { type, payload }) => {
       }
 
       let filterTeam = copy2.filter((driver) => {
-        if (driver["teams"].includes(payload)) {
-          return driver;
+        let claves = Object.keys(driver); // propiedades
+
+        for (let i = 0; i < claves.length; i++) {
+          let clave = claves[i];
+
+          if (clave === "teams") {
+            if (driver[clave].includes(payload)) {
+              return driver;
+            }
+          }
         }
       });
 
