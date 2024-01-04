@@ -76,27 +76,51 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case ORDER_NAME:
       let copy3 = [...state.allDrivers];
 
+      if (payload === "Asc") {
+        return {
+          ...state,
+          driversFilter: copy3.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          }),
+        };
+      } else if (payload === "Des") {
+        return {
+          ...state,
+          driversFilter: copy3.sort((a, b) => {
+            return b.name.localeCompare(a.name);
+          }),
+        };
+      }
       return {
         ...state,
-        driversFilter: copy3.sort((a, b) => {
-          if (payload === "Asc") {
-            return a.name.localeCompare(b.name);
-          }
-          return b.name.localeCompare(a.name);
-        }),
+        driversFilter: copy3,
       };
 
     case ORDER_BIRTHDATE:
       let copy4 = [...state.allDrivers];
 
+      if (payload === "Asc") {
+        copy4.sort((a, b) => {
+          return a.birthdate.localeCompare(b.birthdate);
+        });
+
+        return {
+          ...state,
+          driversFilter: copy4,
+        };
+      } else if (payload === "Des") {
+        copy4.sort((a, b) => {
+          return b.birthdate.localeCompare(a.birthdate);
+        });
+
+        return {
+          ...state,
+          driversFilter: copy4,
+        };
+      }
       return {
         ...state,
-        driversFilter: copy4.sort((a, b) => {
-          if (payload === "Asc") {
-            return a.birthdate.localeCompare(b.birthdate);
-          }
-          return b.birthdate.localeCompare(a.birthdate);
-        }),
+        driversFilter: copy4,
       };
 
     default:

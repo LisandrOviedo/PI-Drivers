@@ -69,13 +69,15 @@ export default function Drivers() {
         </select>
 
         <select onChange={handleOrderName}>
-          <option value="Asc">Ascending Name</option>
-          <option value="Des">Descending Name</option>
+          <option value="All">Order Name</option>
+          <option value="Asc">A-Z</option>
+          <option value="Des">Z-A</option>
         </select>
 
         <select onChange={handleOrderBirthdate}>
-          <option value="Asc">Birthdate Ascending</option>
-          <option value="Des">Birthdate Descending</option>
+          <option value="All">Order Birthdate</option>
+          <option value="Des">Most recent first</option>
+          <option value="Asc">Less recent first</option>
         </select>
       </div>
       <br />
