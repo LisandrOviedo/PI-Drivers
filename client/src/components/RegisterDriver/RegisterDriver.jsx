@@ -1,5 +1,5 @@
 import { getTeams } from "../../redux/actions";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { validator } from "./validator";
 

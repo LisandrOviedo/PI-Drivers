@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { validator } from "./validator";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { validator } from "./validator";
 
 import styles from "./Login.module.scss";
 

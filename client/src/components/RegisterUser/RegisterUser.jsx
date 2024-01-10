@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { validator } from "./validator";
 import { Link } from "react-router-dom";
+import { validator } from "./validator";
 
 import styles from "./RegisterUser.module.scss";
 
