@@ -61,7 +61,7 @@ export default function Drivers() {
   const handlePrevPage = () => {
     const prevPage = currentPage - 1;
 
-    if (prevPage >= 1) {
+    if (prevPage > 1) {
       setCurrentPage(prevPage);
     }
   };
@@ -69,7 +69,7 @@ export default function Drivers() {
   const handleNextPage = () => {
     const nextPage = currentPage + 1;
 
-    if (nextPage - 1 < pageCount) {
+    if (nextPage <= pageCount) {
       setCurrentPage(nextPage);
     }
   };
