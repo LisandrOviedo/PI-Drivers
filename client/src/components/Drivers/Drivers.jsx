@@ -39,6 +39,7 @@ export default function Drivers() {
   const indexInicial = indexFinal - driversPerPage;
 
   const dataDrivers = driversFilter.slice(indexInicial, indexFinal);
+  const pageCount = Math.ceil(driversFilter.length / driversPerPage);
 
   const handleFilterOrigin = (event) => {
     dispatch(filterOrigin(event.target.value));
@@ -67,8 +68,6 @@ export default function Drivers() {
 
   const handleNextPage = () => {
     const nextPage = currentPage + 1;
-
-    const pageCount = Math.ceil(driversFilter.length / driversPerPage);
 
     if (nextPage - 1 < pageCount) {
       setCurrentPage(nextPage);
@@ -110,7 +109,9 @@ export default function Drivers() {
       <br />
       <div className={styles.pagination}>
         <button onClick={handlePrevPage}>Prev</button>
-        <label>Current page: {currentPage}</label>
+        <label>
+          Current page: {currentPage} of {pageCount}
+        </label>
         <button onClick={handleNextPage}>Next</button>
       </div>
       <br />
