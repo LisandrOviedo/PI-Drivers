@@ -38,7 +38,7 @@ export default function Drivers() {
   const indexFinal = currentPage * driversPerPage;
   const indexInicial = indexFinal - driversPerPage;
 
-  let dataDrivers = driversFilter.slice(indexInicial, indexFinal);
+  const dataDrivers = driversFilter.slice(indexInicial, indexFinal);
 
   const handleFilterOrigin = (event) => {
     dispatch(filterOrigin(event.target.value));
