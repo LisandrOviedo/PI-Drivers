@@ -33,7 +33,7 @@ export default function Drivers() {
 
   // Paginado
   const [currentPage, setCurrentPage] = useState(1);
-  const driversPerPage = 9;
+  const [driversPerPage, setDriversPerPage] = useState(9);
 
   const indexEnd = currentPage * driversPerPage;
   const indexStart = indexEnd - driversPerPage;
@@ -74,6 +74,11 @@ export default function Drivers() {
     }
   };
 
+  const handleDriversPerPage = (event) => {
+    setCurrentPage(1);
+    setDriversPerPage(event.target.value);
+  };
+
   return (
     <div className={styles.driversContainer}>
       <br />
@@ -104,6 +109,14 @@ export default function Drivers() {
           <option value="All">Order Birthdate</option>
           <option value="Des">Most recent first</option>
           <option value="Asc">Less recent first</option>
+        </select>
+
+        <select onChange={handleDriversPerPage}>
+          <option value="9">9 Drivers Per Page (Default)</option>
+          <option value="3">3 Drivers Per Page</option>
+          <option value="5">5 Drivers Per Page</option>
+          <option value="10">10 Drivers Per Page</option>
+          <option value="20">20 Drivers Per Page</option>
         </select>
       </div>
       <br />
