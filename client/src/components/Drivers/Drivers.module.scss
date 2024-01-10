@@ -26,12 +26,25 @@ body {
       &:focus {
         outline: none;
       }
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
   .pagination {
     label {
       margin: 0.5em;
+    }
+
+    button {
+      border: 2px solid #4741d7;
+      border-radius: 3px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -43,5 +56,16 @@ body {
     height: auto;
     justify-content: space-around;
     gap: 20px;
+  }
+
+  .scrollUp {
+    border: 2px solid #4741d7;
+    border-radius: 3px;
+    transition: transform 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
   }
 }

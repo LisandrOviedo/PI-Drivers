@@ -79,6 +79,10 @@ export default function Drivers() {
     setDriversPerPage(event.target.value);
   };
 
+  const handleScrollToStart = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className={styles.driversContainer}>
       <br />
@@ -143,6 +147,11 @@ export default function Drivers() {
           />
         ))}
       </div>
+      <button className={styles.scrollUp} onClick={handleScrollToStart}>
+        Go back up!
+      </button>
+      <br />
+      <br />
     </div>
   );
 }
