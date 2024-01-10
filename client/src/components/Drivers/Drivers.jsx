@@ -10,8 +10,8 @@ import {
 } from "../../redux/actions";
 
 import Team from "../Team/Team";
-
 import Driver from "../Driver/Driver";
+
 import styles from "./Drivers.module.scss";
 
 export default function Drivers() {
