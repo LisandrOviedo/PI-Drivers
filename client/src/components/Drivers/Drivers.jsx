@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getDrivers,
@@ -31,6 +31,15 @@ export default function Drivers() {
   const driversFilter = useSelector((state) => state.driversFilter);
   const allTeams = useSelector((state) => state.allTeams);
 
+  // Paginado
+  const [currentPage, setCurrentPage] = useState(1);
+  const driversPerPage = 9;
+
+  const indexFinal = currentPage * driversPerPage;
+  const indexInicial = indexFinal - driversPerPage;
+
+  let dataDrivers = driversFilter.slice(indexInicial, indexFinal);
+
   const handleFilterOrigin = (event) => {
     dispatch(filterOrigin(event.target.value));
   };
@@ -46,6 +55,24 @@ export default function Drivers() {
 
   const handleOrderBirthdate = (event) => {
     dispatch(orderBirthdate(event.target.value));
+  };
+
+  const handlePrevPage = () => {
+    const prevPage = currentPage - 1;
+
+    if (prevPage >= 1) {
+      setCurrentPage(prevPage);
+    }
+  };
+
+  const handleNextPage = () => {
+    const nextPage = currentPage + 1;
+
+    const pageCount = Math.ceil(driversFilter.length / driversPerPage);
+
+    if (nextPage - 1 < pageCount) {
+      setCurrentPage(nextPage);
+    }
   };
 
   return (
@@ -81,8 +108,14 @@ export default function Drivers() {
         </select>
       </div>
       <br />
+      <div className={styles.pagination}>
+        <button onClick={handlePrevPage}>Prev</button>
+        <label>Current page: {currentPage}</label>
+        <button onClick={handleNextPage}>Next</button>
+      </div>
+      <br />
       <div className={styles.cardsContainer}>
-        {driversFilter.map((driver) => (
+        {dataDrivers.map((driver) => (
           <Driver
             key={driver.id}
             id={driver.id}
