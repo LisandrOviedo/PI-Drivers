@@ -35,10 +35,10 @@ export default function Drivers() {
   const [currentPage, setCurrentPage] = useState(1);
   const driversPerPage = 9;
 
-  const indexFinal = currentPage * driversPerPage;
-  const indexInicial = indexFinal - driversPerPage;
+  const indexEnd = currentPage * driversPerPage;
+  const indexStart = indexEnd - driversPerPage;
 
-  const dataDrivers = driversFilter.slice(indexInicial, indexFinal);
+  const dataDrivers = driversFilter.slice(indexStart, indexEnd);
   const pageCount = Math.ceil(driversFilter.length / driversPerPage);
 
   const handleFilterOrigin = (event) => {
@@ -61,7 +61,7 @@ export default function Drivers() {
   const handlePrevPage = () => {
     const prevPage = currentPage - 1;
 
-    if (prevPage > 1) {
+    if (prevPage >= 1) {
       setCurrentPage(prevPage);
     }
   };
