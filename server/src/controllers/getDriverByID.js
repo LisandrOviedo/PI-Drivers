@@ -6,7 +6,7 @@ const getDriverByID = async (req, res) => {
   const URL = `http://localhost:5000/drivers/${idDriver}`;
 
   try {
-    if (idDriver > 0 && idDriver <= 508) {
+    if (idDriver > 0) {
       const { data } = await axios(URL);
 
       if (data) {
