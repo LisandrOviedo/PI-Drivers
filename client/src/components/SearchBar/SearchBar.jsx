@@ -13,6 +13,17 @@ export default function SearchBar() {
   };
 
   const handleSearch = (name) => {
+    const selectOrigin = document.getElementById("selectOrigin");
+    selectOrigin.value = "All";
+    const selectTeam = document.getElementById("selectTeam");
+    selectTeam.value = "All";
+    const selectOrderName = document.getElementById("selectOrderName");
+    selectOrderName.value = "All";
+    const selectOrderBirthdate = document.getElementById(
+      "selectOrderBirthdate"
+    );
+    selectOrderBirthdate.value = "All";
+
     dispatch(getDriverByName(name));
   };
 
