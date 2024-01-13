@@ -108,6 +108,21 @@ export default function Drivers() {
     dispatch(orderBirthdate(event.target.value));
   };
 
+  const handleRemoveFilters = () => {
+    const selectOrigin = document.getElementById("selectOrigin");
+    selectOrigin.value = "All";
+    const selectTeam = document.getElementById("selectTeam");
+    selectTeam.value = "All";
+    const selectOrderName = document.getElementById("selectOrderName");
+    selectOrderName.value = "All";
+    const selectOrderBirthdate = document.getElementById(
+      "selectOrderBirthdate"
+    );
+    selectOrderBirthdate.value = "All";
+
+    dispatch(filterOrigin(selectOrigin.value));
+  };
+
   const handlePrevPage = () => {
     const prevPage = currentPage - 1;
 
@@ -172,6 +187,7 @@ export default function Drivers() {
           <option value="10">10 Drivers Per Page</option>
           <option value="20">20 Drivers Per Page</option>
         </select>
+        <button onClick={handleRemoveFilters}>Remove Filters</button>
       </div>
       <br />
       <div className={styles.pagination}>
