@@ -139,6 +139,7 @@ export default function RegisterDriver({ registerDriver }) {
           />
           <p>{errors.image}</p>
           <br />
+          <label>Birthdate:</label>
           <input
             id="birthdate"
             type="date"
