@@ -28,7 +28,7 @@ export default function Drivers() {
     };
   }, []);
 
-  const driversFilter = useSelector((state) => state.driversFilter);
+  const drivers = useSelector((state) => state.drivers);
   const allTeams = useSelector((state) => state.allTeams);
 
   // Paginado
@@ -38,15 +38,14 @@ export default function Drivers() {
   const indexEnd = currentPage * driversPerPage;
   const indexStart = indexEnd - driversPerPage;
 
-  const dataDrivers = driversFilter.slice(indexStart, indexEnd);
-  const pageCount = Math.ceil(driversFilter.length / driversPerPage);
+  const dataDrivers = drivers.slice(indexStart, indexEnd);
+  const pageCount = Math.ceil(drivers.length / driversPerPage);
 
   const handleFilterOrigin = (event) => {
     dispatch(filterOrigin(event.target.value));
   };
 
   const handleFilterTeam = (event) => {
-    console.log(event.target.value);
     dispatch(filterTeam(event.target.value));
   };
 

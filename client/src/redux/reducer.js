@@ -9,7 +9,7 @@ import {
 } from "./action-types";
 
 const initialState = {
-  driversFilter: [],
+  drivers: [],
   allDrivers: [],
   allTeams: [],
 };
@@ -17,10 +17,10 @@ const initialState = {
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_DRIVERS:
-      return { ...state, driversFilter: payload, allDrivers: payload };
+      return { ...state, drivers: payload, allDrivers: payload };
 
     case GET_DRIVERBYNAME:
-      return { ...state, driversFilter: payload };
+      return { ...state, drivers: payload };
 
     case GET_TEAMS:
       return { ...state, allTeams: payload };
@@ -33,18 +33,18 @@ const rootReducer = (state = initialState, { type, payload }) => {
           return typeof driver.id !== "number";
         });
 
-        return { ...state, driversFilter: filterOrigin };
+        return { ...state, drivers: filterOrigin };
       } else if (payload === "API") {
         let filterOrigin = copy.filter((driver) => {
           return typeof driver.id === "number";
         });
 
-        return { ...state, driversFilter: filterOrigin };
+        return { ...state, drivers: filterOrigin };
       }
 
       return {
         ...state,
-        driversFilter: copy,
+        drivers: copy,
       };
 
     case FILTER_TEAM:
@@ -53,7 +53,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       if (payload === "All") {
         return {
           ...state,
-          driversFilter: copy2,
+          drivers: copy2,
         };
       }
 
@@ -71,7 +71,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         }
       });
 
-      return { ...state, driversFilter: filterTeam };
+      return { ...state, drivers: filterTeam };
 
     case ORDER_NAME:
       let copy3 = [...state.allDrivers];
@@ -79,21 +79,21 @@ const rootReducer = (state = initialState, { type, payload }) => {
       if (payload === "Asc") {
         return {
           ...state,
-          driversFilter: copy3.sort((a, b) => {
+          drivers: copy3.sort((a, b) => {
             return a.name.localeCompare(b.name);
           }),
         };
       } else if (payload === "Des") {
         return {
           ...state,
-          driversFilter: copy3.sort((a, b) => {
+          drivers: copy3.sort((a, b) => {
             return b.name.localeCompare(a.name);
           }),
         };
       }
       return {
         ...state,
-        driversFilter: copy3,
+        drivers: copy3,
       };
 
     case ORDER_BIRTHDATE:
@@ -106,7 +106,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
         return {
           ...state,
-          driversFilter: copy4,
+          drivers: copy4,
         };
       } else if (payload === "Des") {
         copy4.sort((a, b) => {
@@ -115,12 +115,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
         return {
           ...state,
-          driversFilter: copy4,
+          drivers: copy4,
         };
       }
       return {
         ...state,
-        driversFilter: copy4,
+        drivers: copy4,
       };
 
     default:
