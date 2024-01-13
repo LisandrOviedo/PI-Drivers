@@ -187,7 +187,7 @@ export default function Drivers() {
           <option value="10">10 Drivers Per Page</option>
           <option value="20">20 Drivers Per Page</option>
         </select>
-        <button onClick={handleRemoveFilters}>Remove Filters</button>
+        <button onClick={handleRemoveFilters}>❌ Remove Filters</button>
       </div>
       <br />
       <div className={styles.pagination}>
