@@ -20,7 +20,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state, drivers: payload, allDrivers: payload };
 
     case GET_DRIVERBYNAME:
-      return { ...state, drivers: payload };
+      return { ...state, drivers: payload, allDrivers: payload };
 
     case GET_TEAMS:
       return { ...state, allTeams: payload };
