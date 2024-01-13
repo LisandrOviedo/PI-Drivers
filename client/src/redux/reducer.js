@@ -48,7 +48,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case FILTER_TEAM:
-      let copy2 = [...state.allDrivers];
+      let copy2 = [...state.drivers];
 
       if (payload === "All") {
         return {
@@ -74,7 +74,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state, drivers: filterTeam };
 
     case ORDER_NAME:
-      let copy3 = [...state.allDrivers];
+      let copy3 = [...state.drivers];
 
       if (payload === "Asc") {
         return {
@@ -97,7 +97,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case ORDER_BIRTHDATE:
-      let copy4 = [...state.allDrivers];
+      let copy4 = [...state.drivers];
 
       if (payload === "Asc") {
         copy4.sort((a, b) => {
