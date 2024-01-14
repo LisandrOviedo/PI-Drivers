@@ -166,12 +166,11 @@ export default function Drivers() {
         if (event.target.value <= pageCount && event.target.value > 0) {
           setCurrentPage(Number(event.target.value));
           handleScrollToStart();
+          const inputPageNumber = document.getElementById("inputPageNumber");
+          inputPageNumber.value = "";
         }
       }
     }
-
-    const inputPageNumber = document.getElementById("inputPageNumber");
-    inputPageNumber.value = "";
   };
 
   const handleScrollToStart = () => {
