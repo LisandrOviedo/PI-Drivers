@@ -161,16 +161,18 @@ export default function Drivers() {
   };
 
   const handleInputPagination = (event) => {
+    const inputPageNumber = document.getElementById("inputPageNumber");
+
     if (event.key === "Enter") {
       if (currentPage !== event.target.value) {
         if (event.target.value <= pageCount && event.target.value > 0) {
           setCurrentPage(Number(event.target.value));
           handleScrollToStart();
+          inputPageNumber.blur();
         } else {
           alert("You must enter a number between 1 to 57");
         }
       }
-      const inputPageNumber = document.getElementById("inputPageNumber");
       inputPageNumber.value = "";
     }
   };
@@ -238,11 +240,11 @@ export default function Drivers() {
       </div>
       <div className={styles.pagination}>
         <button onClick={handleFirstPage}>First</button>
-        <button onClick={handlePrevPage}>Prev</button>
+        <button onClick={handlePrevPage}>⬅️ Prev</button>
         <label>
           Current page: {currentPage} of {pageCount}
         </label>
-        <button onClick={handleNextPage}>Next</button>
+        <button onClick={handleNextPage}>Next ➡️</button>
         <button onClick={handleLastPage}>Last</button>
       </div>
       <input
@@ -253,8 +255,9 @@ export default function Drivers() {
         className={styles.inputPagination}
       />
       <br />
+      <br />
       <button className={styles.scrollUp} onClick={handleScrollToStart}>
-        Go back up!
+        Go back up ⬆️
       </button>
       <br />
       <br />
