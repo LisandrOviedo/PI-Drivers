@@ -161,12 +161,17 @@ export default function Drivers() {
   };
 
   const handleInputPagination = (event) => {
-    if (currentPage !== event.target.value) {
-      if (event.target.value <= pageCount && event.target.value > 0) {
-        setCurrentPage(event.target.value);
-        handleScrollToStart();
+    if (event.key === "Enter") {
+      if (currentPage !== event.target.value) {
+        if (event.target.value <= pageCount && event.target.value > 0) {
+          setCurrentPage(Number(event.target.value));
+          handleScrollToStart();
+        }
       }
     }
+
+    const inputPageNumber = document.getElementById("inputPageNumber");
+    inputPageNumber.value = "";
   };
 
   const handleScrollToStart = () => {
@@ -240,9 +245,10 @@ export default function Drivers() {
         <button onClick={handleLastPage}>Last</button>
       </div>
       <input
+        id="inputPageNumber"
         type="text"
         placeholder="Page number"
-        onChange={handleInputPagination}
+        onKeyDown={handleInputPagination}
         className={styles.inputPagination}
       />
       <br />
