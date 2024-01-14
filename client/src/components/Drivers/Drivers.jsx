@@ -128,6 +128,7 @@ export default function Drivers() {
 
     if (prevPage >= 1) {
       setCurrentPage(prevPage);
+      handleScrollToStart();
     }
   };
 
@@ -136,12 +137,36 @@ export default function Drivers() {
 
     if (nextPage <= pageCount) {
       setCurrentPage(nextPage);
+      handleScrollToStart();
+    }
+  };
+
+  const handleFirstPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(1);
+      handleScrollToStart();
+    }
+  };
+
+  const handleLastPage = () => {
+    if (currentPage < pageCount) {
+      setCurrentPage(pageCount);
+      handleScrollToStart();
     }
   };
 
   const handleDriversPerPage = (event) => {
     setCurrentPage(1);
     setDriversPerPage(event.target.value);
+  };
+
+  const handleInputPagination = (event) => {
+    if (currentPage !== event.target.value) {
+      if (event.target.value <= pageCount && event.target.value > 0) {
+        setCurrentPage(event.target.value);
+        handleScrollToStart();
+      }
+    }
   };
 
   const handleScrollToStart = () => {
@@ -190,14 +215,6 @@ export default function Drivers() {
         <button onClick={handleRemoveFilters}>❌ Remove Filters</button>
       </div>
       <br />
-      <div className={styles.pagination}>
-        <button onClick={handlePrevPage}>Prev</button>
-        <label>
-          Current page: {currentPage} of {pageCount}
-        </label>
-        <button onClick={handleNextPage}>Next</button>
-      </div>
-      <br />
       <div className={styles.cardsContainer}>
         {dataDrivers.map((driver) => (
           <Driver
@@ -213,6 +230,22 @@ export default function Drivers() {
           />
         ))}
       </div>
+      <div className={styles.pagination}>
+        <button onClick={handleFirstPage}>First</button>
+        <button onClick={handlePrevPage}>Prev</button>
+        <label>
+          Current page: {currentPage} of {pageCount}
+        </label>
+        <button onClick={handleNextPage}>Next</button>
+        <button onClick={handleLastPage}>Last</button>
+      </div>
+      <input
+        type="text"
+        placeholder="Page number"
+        onChange={handleInputPagination}
+        className={styles.inputPagination}
+      />
+      <br />
       <button className={styles.scrollUp} onClick={handleScrollToStart}>
         Go back up!
       </button>

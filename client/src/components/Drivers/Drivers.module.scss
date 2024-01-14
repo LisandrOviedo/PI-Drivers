@@ -18,6 +18,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 16px;
+    flex-wrap: wrap;
 
     select {
       border: 2px solid #4741d7;
@@ -44,8 +45,14 @@ body {
   }
 
   .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+
     label {
       margin: 0.5em;
+      text-shadow: 3px 3px $third-color;
     }
 
     button {
@@ -55,6 +62,16 @@ body {
       &:hover {
         cursor: pointer;
       }
+    }
+  }
+
+  .inputPagination {
+    text-align: center;
+    border: 2px solid #4741d7;
+    border-radius: 3px;
+
+    &:focus {
+      outline: none;
     }
   }
 
