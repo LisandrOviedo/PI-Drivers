@@ -247,7 +247,7 @@ export default function Drivers() {
       <input
         id="inputPageNumber"
         type="text"
-        placeholder="Page number"
+        placeholder="Write a page number"
         onKeyDown={handleInputPagination}
         className={styles.inputPagination}
       />
