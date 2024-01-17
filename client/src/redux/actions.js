@@ -46,12 +46,10 @@ export const getDriverByName = (name) => {
         return alert("No drivers found");
       }
 
-      if (data.length > 0) {
-        return dispatch({
-          type: GET_DRIVERBYNAME,
-          payload: data,
-        });
-      }
+      return dispatch({
+        type: GET_DRIVERBYNAME,
+        payload: data,
+      });
     };
   } catch (error) {
     window.alert(error.response.status);
