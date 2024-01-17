@@ -42,7 +42,11 @@ export const getDriverByName = (name) => {
 
       const { data } = await axios(URL_SEARCH);
 
-      if (data[0].name) {
+      if (data.length === 0) {
+        alert(`No drivers found`);
+      }
+
+      if (data.length > 0) {
         return dispatch({
           type: GET_DRIVERBYNAME,
           payload: data,

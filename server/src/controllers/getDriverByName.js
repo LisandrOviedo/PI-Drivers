@@ -71,36 +71,45 @@ const getDriverByName = async (req, res) => {
         });
       }
 
-      const { data } = await axios(URL);
+      if (result.length < 15) {
+        const { data } = await axios(URL);
 
-      if (data) {
-        for (let i = 0; i < data.length; i++) {
-          if (result.length < 15) {
-            if (
-              data[i].name.forename.toLowerCase().startsWith(name.toLowerCase())
-            ) {
-              let properties = {
-                id: data[i].id,
-                name: data[i].name.forename,
-                last_name: data[i].name.surname,
-                description: data[i].description,
-                image: data[i].image.url,
-                nationality: data[i].nationality,
-                birthdate: data[i].dob,
-                teams: data[i].teams,
-              };
-              if (!data[i].image.url) {
-                properties.image = "https://i.imgur.com/vpa5uds.png";
+        if (data) {
+          for (let i = 0; i < data.length; i++) {
+            if (result.length < 15) {
+              if (
+                data[i].name.forename
+                  .toLowerCase()
+                  .startsWith(name.toLowerCase())
+              ) {
+                let properties = {
+                  id: data[i].id,
+                  name: data[i].name.forename,
+                  last_name: data[i].name.surname,
+                  description: data[i].description,
+                  image: data[i].image.url,
+                  nationality: data[i].nationality,
+                  birthdate: data[i].dob,
+                  teams: data[i].teams,
+                };
+                if (!data[i].image.url) {
+                  properties.image = "https://i.imgur.com/vpa5uds.png";
+                }
+
+                result.push(properties);
               }
-
-              result.push(properties);
+            } else {
+              break;
             }
-          } else {
-            break;
           }
         }
       }
-      return res.json(result);
+
+      if (result.length > 0) {
+        return res.json(result);
+      } else {
+        return res.status(404).json({ error: "Drivers not found" });
+      }
     }
     return res.status(400).json({ error: "Missing data" });
   } catch (error) {
