@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+import Footer from "../Footer/Footer";
+
 import styles from "./AboutMe.module.scss";
 
 export default function About() {
@@ -60,6 +62,10 @@ export default function About() {
           </tr>
         </tbody>
       </table>
+      <br />
+      <div className={styles.footer}>
+        <Footer />
+      </div>
     </div>
   );
 }

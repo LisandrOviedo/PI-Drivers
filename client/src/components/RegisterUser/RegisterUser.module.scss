@@ -109,11 +109,17 @@
       }
     }
   }
+
+  .footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
 }
 
 .buttonContainer2 {
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
 
   .linkNav {
     color: #4741d7;

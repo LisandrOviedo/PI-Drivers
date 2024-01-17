@@ -6,6 +6,8 @@ export default function PageNotFound() {
   useEffect(() => {
     document.title = "Error - Drivers";
 
+    document.getElementById("navBar").style.display = "none";
+
     return () => {
       document.title = "Drivers";
     };

@@ -5,6 +5,8 @@ import { validator } from "./validator";
 
 import Team from "../Team/Team";
 
+import Footer from "../Footer/Footer";
+
 import styles from "./RegisterDriver.module.scss";
 
 export default function RegisterDriver({ registerDriver }) {
@@ -180,6 +182,11 @@ export default function RegisterDriver({ registerDriver }) {
             <br />
           </div>
         </form>
+      </div>
+      <br />
+      <br />
+      <div className={styles.footer}>
+        <Footer />
       </div>
     </div>
   );

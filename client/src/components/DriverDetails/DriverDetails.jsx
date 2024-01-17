@@ -3,6 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import Footer from "../Footer/Footer";
+
 import styles from "./DriverDetails.module.scss";
 
 export default function DriverDetails() {
@@ -65,6 +67,10 @@ export default function DriverDetails() {
           </div>
         </>
       )}
+
+      <div className={styles.footer}>
+        <Footer />
+      </div>
     </div>
   );
 }

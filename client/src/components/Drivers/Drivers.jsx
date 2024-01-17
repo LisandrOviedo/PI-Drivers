@@ -9,8 +9,9 @@ import {
   orderBirthdate,
 } from "../../redux/actions";
 
-import Team from "../Team/Team";
 import Driver from "../Driver/Driver";
+import Footer from "../Footer/Footer";
+import Team from "../Team/Team";
 
 import styles from "./Drivers.module.scss";
 
@@ -261,6 +262,9 @@ export default function Drivers() {
       </button>
       <br />
       <br />
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import styles from "./NavBar.module.scss";
 
 export default function NavBar(props) {
   return (
-    <nav className={styles.navContainer}>
+    <nav id="navBar" className={styles.navContainer}>
       <div className={styles.firstSection}>
         <Link className={styles.linkLogo} to="/home">
           <img src={Logo} alt="Driver Logo" width="50px" />

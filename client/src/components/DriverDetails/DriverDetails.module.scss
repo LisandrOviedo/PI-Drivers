@@ -6,9 +6,11 @@
   text-shadow: 3px 3px $third-color;
   line-height: 1.5;
   text-transform: capitalize;
+  position: relative;
 
   .firstSection {
     text-align: center;
+    margin-bottom: 50px;
 
     h1 {
       margin-bottom: 0;
@@ -50,5 +52,11 @@
     b {
       border-bottom: 3px solid $third-color;
     }
+  }
+
+  .footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
   }
 }

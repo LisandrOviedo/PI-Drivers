@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { validator } from "./validator";
 
+import Footer from "../Footer/Footer";
+
 import styles from "./RegisterUser.module.scss";
 
 export default function RegisterUser({ register }) {
@@ -79,6 +81,9 @@ export default function RegisterUser({ register }) {
         <Link className={styles.linkNav} to="/login">
           <span>Do you already have an account? Login here</span>
         </Link>
+      </div>
+      <div className={styles.footer}>
+        <Footer />
       </div>
     </div>
   );
