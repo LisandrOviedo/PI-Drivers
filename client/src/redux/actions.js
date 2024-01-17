@@ -54,7 +54,7 @@ export const getDriverByName = (name) => {
       }
     };
   } catch (error) {
-    window.alert(error.response.data.error);
+    window.alert(error.response.status);
   }
 };
 

@@ -224,7 +224,7 @@ export default function Drivers() {
       </div>
       <br />
       <div className={styles.cardsContainer}>
-        {dataDrivers.map((driver) => (
+        {dataDrivers?.map((driver) => (
           <Driver
             key={driver.id}
             id={driver.id}
