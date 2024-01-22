@@ -16,13 +16,18 @@ export default function DriverDetails() {
   useEffect(() => {
     document.title = `Detail ${id} - Drivers`;
 
-    axios(URL_DETAIL).then(({ data }) => {
-      if (data.name) {
-        setDriver(data);
-      } else {
-        window.alert("There are no drivers with this ID!");
-      }
-    });
+    axios(URL_DETAIL)
+      .then(({ data }) => {
+        if (data.name) {
+          setDriver(data);
+        } else {
+          window.alert("There are no drivers with this ID!");
+        }
+      })
+      .catch((error) => {
+        window.alert(error);
+      });
+
     return setDriver({});
   }, [id]);
 
@@ -52,22 +57,26 @@ export default function DriverDetails() {
               <b>ID:</b> {driver.id}
             </label>
             <img src={driver.image} alt={driver.name} />
-            <p>
+            <br />
+            <br />
+            <span>
               <b>Nationality:</b> {driver.nationality}
-            </p>
-            <p>
+            </span>
+            <br />
+            <br />
+            <span>
               <b>Birthdate:</b> {driver.birthdate}
-            </p>
+            </span>
+            <br />
             <p>
               <b>Description:</b> {driver.description}
             </p>
-            <p>
+            <span>
               <b>Teams:</b> {driver.teams}
-            </p>
+            </span>
           </div>
         </>
       )}
-
       <div className={styles.footer}>
         <Footer />
       </div>

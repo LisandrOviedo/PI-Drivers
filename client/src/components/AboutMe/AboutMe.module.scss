@@ -47,7 +47,7 @@
     border: groove;
     border-collapse: collapse;
     width: auto;
-    margin-bottom: 50px;
+    margin-bottom: 5em;
   }
 
   td,
@@ -59,6 +59,10 @@
 
   tr {
     background-color: $third-color;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 
   tr:nth-child(even) {
