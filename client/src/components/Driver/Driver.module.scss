@@ -2,10 +2,11 @@
   background-color: $second-color;
   border-style: groove;
   border-radius: 16px;
+  border-color: $third-color;
   display: flex;
   flex-direction: column;
   width: 200px;
-  max-height: auto;
+  height: max-content;
   position: relative;
   text-transform: capitalize;
 
