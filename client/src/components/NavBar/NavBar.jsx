@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import SearchBar from "../SearchBar/SearchBar";
 
@@ -7,6 +7,8 @@ import Logo from "/Logo.svg";
 import styles from "./NavBar.module.scss";
 
 export default function NavBar(props) {
+  const { pathname } = useLocation();
+
   return (
     <nav id="navBar" className={styles.navContainer}>
       <div className={styles.firstSection}>
@@ -28,7 +30,7 @@ export default function NavBar(props) {
         </div>
 
         <div className={styles.searchBar}>
-          <SearchBar />
+          {pathname === "/home" && <SearchBar />}
         </div>
       </div>
     </nav>
