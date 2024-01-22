@@ -1,4 +1,8 @@
 .detailContainer {
+  background-image: url("/DriverDetails.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -14,12 +18,14 @@
 
     h1 {
       margin-bottom: 0;
+      color: white;
     }
 
     label {
       display: none;
       margin-bottom: 0.5em;
       text-shadow: none;
+      color: white;
     }
 
     button {
