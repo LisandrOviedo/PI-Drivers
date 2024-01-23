@@ -8,6 +8,11 @@
   justify-content: center;
   position: relative;
 
+  h1 {
+    color: $second-color;
+    text-shadow: 3px 3px $third-color;
+  }
+
   img {
     position: absolute;
     width: 3em;
@@ -113,7 +118,7 @@
 
 .buttonContainer2 {
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
 
   .linkNav {
     color: #4741d7;

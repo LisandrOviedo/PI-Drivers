@@ -46,6 +46,8 @@ export default function Login({ login }) {
       <Link to="/">
         <img src="/Logo.svg" alt="Inicio" />
       </Link>
+      <br />
+      <h1>Welcome back!</h1>
       <div className={styles.formContainer}>
         <form>
           <input

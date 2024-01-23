@@ -46,6 +46,8 @@ export default function RegisterUser({ register }) {
       <Link to="/">
         <img src="/Logo.svg" alt="Inicio" />
       </Link>
+      <br />
+      <h1>Join the experience!</h1>
       <div className={styles.formContainer}>
         <form>
           <input
