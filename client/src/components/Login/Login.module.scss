@@ -9,8 +9,13 @@
   position: relative;
 
   h1 {
+    position: absolute;
     color: $second-color;
     text-shadow: 3px 3px $third-color;
+
+    @include sm {
+      margin-top: 2em;
+    }
   }
 
   img {
