@@ -125,6 +125,10 @@
   position: absolute;
   bottom: 10%;
 
+  @include sm {
+    bottom: 15%;
+  }
+
   .linkNav {
     color: #4741d7;
     text-decoration: none;

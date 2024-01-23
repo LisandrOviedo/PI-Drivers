@@ -52,25 +52,19 @@ export default function DriverDetails() {
             <button id="buttonID" onClick={showID}>
               Show ID 👁️
             </button>
-            <br />
             <label id="ID">
               <b>ID:</b> {driver.id}
             </label>
             <img src={driver.image} alt={driver.name} />
-            <br />
-            <br />
             <span>
               <b>Nationality:</b> {driver.nationality}
             </span>
-            <br />
-            <br />
             <span>
               <b>Birthdate:</b> {driver.birthdate}
             </span>
-            <br />
-            <p>
+            <span>
               <b>Description:</b> {driver.description}
-            </p>
+            </span>
             <span>
               <b>Teams:</b> {driver.teams}
             </span>

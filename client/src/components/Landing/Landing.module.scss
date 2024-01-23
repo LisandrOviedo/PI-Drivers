@@ -30,6 +30,10 @@
     bottom: 10%;
     text-decoration: none;
 
+    @include sm {
+      bottom: 15%;
+    }
+
     button {
       background-color: #4741d7;
       font-size: 1em;
