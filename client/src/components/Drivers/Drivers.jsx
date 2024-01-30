@@ -43,6 +43,7 @@ export default function Drivers() {
   const pageCount = Math.ceil(drivers.length / driversPerPage);
 
   const handleFilterOrigin = (event) => {
+    setCurrentPage(1);
     const selectTeam = document.getElementById("selectTeam");
     selectTeam.value = "All";
     const selectOrderName = document.getElementById("selectOrderName");
@@ -56,6 +57,7 @@ export default function Drivers() {
   };
 
   const handleFilterTeam = (event) => {
+    setCurrentPage(1);
     const selectOrderName = document.getElementById("selectOrderName");
     selectOrderName.value = "All";
     const selectOrderBirthdate = document.getElementById(
@@ -110,6 +112,7 @@ export default function Drivers() {
   };
 
   const handleRemoveFilters = () => {
+    setCurrentPage(1);
     const selectOrigin = document.getElementById("selectOrigin");
     selectOrigin.value = "All";
     const selectTeam = document.getElementById("selectTeam");
@@ -171,7 +174,7 @@ export default function Drivers() {
           handleScrollToStart();
           inputPageNumber.blur();
         } else {
-          alert("You must enter a number between 1 to 57");
+          alert("The number entered is greater than the number of pages found");
         }
       }
       inputPageNumber.value = "";
