@@ -89,8 +89,12 @@ function App() {
   }
 
   function logout() {
-    setAccess({ access: false });
-    alert("See you later! We hope to see you again soon!");
+    var logout = confirm("Do you really want to log out?");
+
+    if (logout === true) {
+      setAccess({ access: false });
+      return alert("See you later! We hope to see you again soon!");
+    }
   }
 
   useMemo(() => {

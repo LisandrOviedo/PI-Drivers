@@ -12,6 +12,7 @@
   @include sm {
     flex-direction: column;
     padding-bottom: 1em;
+    gap: 1em;
   }
 
   .firstSection {
@@ -49,7 +50,7 @@
       min-height: auto;
       flex-direction: column;
       padding: 0;
-      gap: 1em;
+      gap: 1.5em;
     }
 
     .navigate {
