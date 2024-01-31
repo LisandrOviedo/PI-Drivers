@@ -5,14 +5,14 @@
   border-color: $third-color;
   display: flex;
   flex-direction: column;
-  width: 15%;
+  width: 180px;
   height: max-content;
   position: relative;
   text-transform: capitalize;
   word-break: break-word;
 
   @include sm {
-    width: 20%;
+    width: 130px;
   }
 
   img {
@@ -36,15 +36,14 @@
 
     .name {
       margin-left: 10px;
-      text-align: center;
 
       &:hover {
         color: gray;
       }
     }
 
-    h4,
-    h5 {
+    h4 {
+      text-align: center;
       color: $first-color;
       margin: 0;
     }

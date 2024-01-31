@@ -15,7 +15,7 @@ export default function Driver(props) {
 
       <div className={styles.infoSection}>
         <Link className={styles.link} to={`/detail/${id}`}>
-          <h4 className={styles.name}>
+          <h4>
             {name} {last_name}
           </h4>
         </Link>
