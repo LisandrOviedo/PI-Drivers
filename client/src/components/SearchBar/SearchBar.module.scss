@@ -1,7 +1,7 @@
 .searchBar {
   background-color: $second-color;
   position: relative;
-  width: 140px;
+  width: 150px;
   height: 30px;
   display: flex;
   align-items: center;
@@ -12,10 +12,11 @@
     border: none;
     padding-left: 10px;
     border-radius: 14px;
-    width: 112px;
+    width: 115px;
 
     &:focus {
       outline: none;
+      font-weight: bold;
     }
   }
 
@@ -26,9 +27,10 @@
     right: 0;
     cursor: pointer;
     border-radius: 14px;
+    font-size: 1.2em;
 
     &:hover {
-      opacity: 0.5;
+      opacity: 0.6;
     }
   }
 }

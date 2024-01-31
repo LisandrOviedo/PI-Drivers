@@ -11,8 +11,7 @@
 
   @include sm {
     flex-direction: column;
-    padding: 0px 10px;
-    padding-bottom: 16px;
+    padding-bottom: 1em;
   }
 
   .firstSection {
@@ -20,10 +19,6 @@
     justify-content: center;
     flex: 1;
     font-size: 1.3em;
-
-    @include sm {
-      padding: 10px 10px 20px 10px;
-    }
 
     .linkLogo {
       color: $first-color;
@@ -35,6 +30,7 @@
 
       &:hover {
         transform: scale(1.1);
+        color: white;
       }
     }
   }
@@ -46,22 +42,30 @@
     align-items: center;
     padding-left: 20px;
     min-height: 80px;
+    text-align: center;
 
     @include sm {
       width: 100%;
       min-height: auto;
+      flex-direction: column;
+      padding: 0;
+      gap: 1em;
     }
 
     .navigate {
       display: flex;
       gap: 12px;
 
+      @include sm {
+        flex-direction: column;
+      }
+
       .linkNav {
         color: $first-color;
         text-decoration: none;
 
         &:hover {
-          border-bottom: 3px solid $third-color;
+          color: white;
         }
       }
 
@@ -75,7 +79,7 @@
         font-size: inherit;
 
         &:hover {
-          border-bottom: 3px solid $third-color;
+          color: white;
         }
       }
     }
