@@ -1,38 +1,28 @@
 .detailContainer {
-  background-image: url("/DriverDetails.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+  background-color: rgba(71, 65, 215, 0.3);
+  min-height: 100vh;
   display: flex;
-  justify-content: space-evenly;
-  color: $first-color;
+  justify-content: center;
   line-height: 1.5;
   text-transform: capitalize;
   position: relative;
-  min-height: 100vh;
+  width: 100%;
 
   .firstSection {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 7em;
-
-    @include sm {
-      margin-bottom: 0;
-    }
+    width: 90%;
+    margin-bottom: 5em;
 
     h1 {
       margin-bottom: 0;
-      color: white;
-      text-shadow: 3px 3px $third-color;
     }
 
     label {
       display: none;
       margin-bottom: 0.5em;
-      text-shadow: none;
-      color: white;
     }
 
     button {
@@ -48,8 +38,8 @@
     }
 
     img {
-      border-style: groove;
-      clip-path: circle(60%);
+      border: thin solid black;
+      border-radius: 1em;
       width: 250px;
 
       @include sm {
@@ -57,21 +47,14 @@
       }
     }
 
-    span,
-    p {
-      margin-left: 2em;
-      margin-right: 2em;
+    span {
+      margin: 0 2em;
       padding: 0.5em;
-      color: white;
     }
+  }
 
-    b {
-      border-bottom: 3px solid $third-color;
-    }
-
-    p {
-      text-align: justify;
-    }
+  p {
+    display: inline;
   }
 
   .footer {

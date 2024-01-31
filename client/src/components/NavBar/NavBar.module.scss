@@ -88,6 +88,10 @@
     .searchBar {
       display: flex;
       margin-right: 1em;
+
+      @include sm {
+        margin-right: 0;
+      }
     }
   }
 }

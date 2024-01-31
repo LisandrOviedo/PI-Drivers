@@ -34,10 +34,10 @@ export default function DriverDetails() {
   const showID = () => {
     if (document.getElementById("ID").style.display == "none") {
       document.getElementById("ID").style.display = "block";
-      document.getElementById("buttonID").innerText = "Hide ID 🚫";
+      document.getElementById("buttonID").innerText = "Hide ID";
     } else {
       document.getElementById("ID").style.display = "none";
-      document.getElementById("buttonID").innerText = "Show ID 👁️";
+      document.getElementById("buttonID").innerText = "Show ID";
     }
   };
 
@@ -50,7 +50,7 @@ export default function DriverDetails() {
               {driver.name} {driver.last_name}
             </h1>
             <button id="buttonID" onClick={showID}>
-              Show ID 👁️
+              Show ID
             </button>
             <label id="ID">
               <b>ID:</b> {driver.id}
@@ -63,7 +63,7 @@ export default function DriverDetails() {
               <b>Birthdate:</b> {driver.birthdate}
             </span>
             <span>
-              <b>Description:</b> {driver.description}
+              <b>Description:</b> <p>{driver.description}</p>
             </span>
             <span>
               <b>Teams:</b> {driver.teams}
@@ -71,6 +71,8 @@ export default function DriverDetails() {
           </div>
         </>
       )}
+      <br />
+      <br />
       <div className={styles.footer}>
         <Footer />
       </div>

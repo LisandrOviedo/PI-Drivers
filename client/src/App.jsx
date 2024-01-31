@@ -89,7 +89,7 @@ function App() {
   }
 
   function logout() {
-    var logout = confirm("Do you really want to log out?");
+    const logout = confirm("Do you really want to log out?");
 
     if (logout === true) {
       setAccess({ access: false });
