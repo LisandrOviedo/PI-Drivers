@@ -226,7 +226,9 @@ export default function Drivers() {
         ))}
       </div>
       <div className={styles.pagination}>
-        <button onClick={handleFirstPage}>First</button>
+        <button id="firstPage" onClick={handleFirstPage}>
+          First
+        </button>
         <button onClick={handlePrevPage}>⬅️ Prev</button>
         <label>
           Current page: {currentPage} of {pageCount}
@@ -240,7 +242,7 @@ export default function Drivers() {
       </button>
       <br />
       <br />
-      <div>
+      <div className={styles.footer}>
         <Footer />
       </div>
     </div>

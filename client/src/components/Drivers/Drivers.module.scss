@@ -5,6 +5,8 @@
   background-position: center;
   text-align: center;
   width: 100%;
+  min-height: 87vh;
+  position: relative;
 
   h1 {
     display: inline;
@@ -46,6 +48,9 @@
     align-items: center;
     justify-content: center;
     gap: 0.5em;
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
 
     label {
       margin: 0.5em;
@@ -73,6 +78,7 @@
     height: auto;
     justify-content: space-around;
     gap: 20px;
+    margin-bottom: 3em;
   }
 
   .scrollUp {
@@ -92,5 +98,11 @@
     &:hover {
       opacity: 1;
     }
+  }
+
+  .footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
   }
 }

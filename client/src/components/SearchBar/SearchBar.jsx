@@ -25,6 +25,9 @@ export default function SearchBar() {
     selectOrderBirthdate.value = "All";
 
     dispatch(getDriverByName(name));
+
+    const firstPage = document.getElementById("firstPage");
+    firstPage.click();
   };
 
   const handleKeyDown = (event) => {
