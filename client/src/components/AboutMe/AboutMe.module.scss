@@ -24,6 +24,12 @@
     }
   }
 
+  h1,
+  h2,
+  h4 {
+    text-align: center;
+  }
+
   h2 {
     margin: 10px 0 0 0;
   }
@@ -42,8 +48,8 @@
   table {
     border: groove;
     border-collapse: collapse;
-    width: 50%;
-    margin-bottom: 5em;
+    width: auto;
+    margin: auto auto 5em auto;
 
     @include sm {
       width: 80%;
@@ -53,7 +59,7 @@
   td,
   th {
     border: 1px solid $first-color;
-    text-align: left;
+    text-align: center;
     padding: 8px;
   }
 

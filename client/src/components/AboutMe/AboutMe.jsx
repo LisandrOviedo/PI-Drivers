@@ -37,27 +37,39 @@ export default function About() {
       <table>
         <tbody>
           <tr>
-            <td>Full Name</td>
+            <td>
+              <b>Full Name</b>
+            </td>
             <td>Lisandro Oviedo</td>
           </tr>
           <tr>
-            <td>Age</td>
+            <td>
+              <b>Age</b>
+            </td>
             <td>{calcularEdad()} years</td>
           </tr>
           <tr>
-            <td>Nationality</td>
+            <td>
+              <b>Nationality</b>
+            </td>
             <td>Venezuelan</td>
           </tr>
           <tr>
-            <td>Maximum studies completed</td>
+            <td>
+              <b>Maximum studies completed</b>
+            </td>
             <td>Computer engineering, computer technician</td>
           </tr>
           <tr>
-            <td>Profession</td>
+            <td>
+              <b>Profession</b>
+            </td>
             <td>Programmer analyst</td>
           </tr>
           <tr>
-            <td>Hobby</td>
+            <td>
+              <b>Hobby</b>
+            </td>
             <td>Play video games</td>
           </tr>
         </tbody>
