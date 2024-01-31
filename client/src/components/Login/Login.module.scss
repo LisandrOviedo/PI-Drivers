@@ -11,10 +11,11 @@
   h1 {
     position: absolute;
     color: $second-color;
-    text-shadow: 3px 3px $third-color;
+    text-shadow: 3px 3px black;
 
     @include sm {
-      margin-top: 2em;
+      margin-top: 2.5em;
+      text-align: center;
     }
   }
 
@@ -35,21 +36,21 @@
     top: 15%;
 
     @include sm {
-      position: revert;
+      top: 0;
     }
 
     form {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
 
       @include sm {
-        margin-top: 8em;
+        margin-top: 10em;
       }
 
       input {
         background-color: $second-color;
-        width: 200px;
         height: 30px;
         text-align: center;
         font-size: 0.9em;
@@ -58,6 +59,7 @@
 
         &:focus {
           outline: none;
+          font-weight: bold;
         }
 
         &::placeholder {
@@ -66,6 +68,7 @@
 
         @include sm {
           font-size: 1.2em;
+          width: 80%;
         }
       }
 
@@ -92,8 +95,6 @@
 
       button {
         cursor: pointer;
-        border-radius: 16px;
-        border: none;
         width: fit-content;
         height: 25px;
         padding-left: 15px;
@@ -104,7 +105,6 @@
 
         &:hover {
           background-color: $third-color;
-          -webkit-text-stroke: 1px white;
           color: white;
         }
       }
@@ -124,18 +124,18 @@
 .buttonContainer2 {
   position: absolute;
   bottom: 10%;
+  text-align: center;
 
   @include sm {
     bottom: 15%;
   }
 
   .linkNav {
-    color: #4741d7;
+    color: white;
+    text-shadow: 3px 3px black;
     text-decoration: none;
-    text-shadow: 1px 1px;
 
     &:hover {
-      -webkit-text-stroke: 1px $third-color;
       font-weight: bold;
     }
   }

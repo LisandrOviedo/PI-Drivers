@@ -3,6 +3,7 @@ body {
   font-family: Helvetica, Sans-Serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 
   @include sm {
     font-size: 12px;

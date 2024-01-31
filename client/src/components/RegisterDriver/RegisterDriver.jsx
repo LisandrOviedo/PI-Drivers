@@ -161,22 +161,29 @@ export default function RegisterDriver({ registerDriver }) {
           />
           <p>{errors.description}</p>
           <br />
+          <label>Teams:</label>
           <select id="teamsList" name="teamsList">
             {allTeams.map((team) => (
               <Team key={team.id} id={team.id} name={team.name} />
             ))}
           </select>
           <button className={styles.addTeam} onClick={addTeam}>
-            Add Team
+            Add
           </button>
           <button className={styles.deleteTeam} onClick={deleteTeam}>
-            Remove Last Team
+            Remove Last
           </button>
           <br />
-          <label id="teams">Teams Seleccionados: {driverData.teams}</label>
+          <label id="teams">
+            <b>Teams Seleccionados:</b> {driverData.teams}
+          </label>
 
           <div className={styles.buttonContainer}>
-            <button type="Submit" onClick={handleSubmit}>
+            <button
+              className={styles.createDriver}
+              type="Submit"
+              onClick={handleSubmit}
+            >
               Create Driver
             </button>
             <br />

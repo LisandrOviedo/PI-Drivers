@@ -164,23 +164,6 @@ export default function Drivers() {
     setDriversPerPage(event.target.value);
   };
 
-  const handleInputPagination = (event) => {
-    const inputPageNumber = document.getElementById("inputPageNumber");
-
-    if (event.key === "Enter") {
-      if (currentPage !== event.target.value) {
-        if (event.target.value <= pageCount && event.target.value > 0) {
-          setCurrentPage(Number(event.target.value));
-          handleScrollToStart();
-          inputPageNumber.blur();
-        } else {
-          alert("The number entered is greater than the number of pages found");
-        }
-      }
-      inputPageNumber.value = "";
-    }
-  };
-
   const handleScrollToStart = () => {
     window.scrollTo(0, 0);
   };
@@ -251,17 +234,9 @@ export default function Drivers() {
         <button onClick={handleNextPage}>Next ➡️</button>
         <button onClick={handleLastPage}>Last</button>
       </div>
-      <input
-        id="inputPageNumber"
-        type="text"
-        placeholder="Write a page number"
-        onKeyDown={handleInputPagination}
-        className={styles.inputPagination}
-      />
-      <br />
       <br />
       <button className={styles.scrollUp} onClick={handleScrollToStart}>
-        Go back up ⬆️
+        ⬆️
       </button>
       <br />
       <br />

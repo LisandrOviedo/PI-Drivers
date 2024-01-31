@@ -5,25 +5,20 @@
   border-color: $third-color;
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 15%;
   height: max-content;
   position: relative;
   text-transform: capitalize;
   word-break: break-word;
 
   @include sm {
-    width: 150px;
+    width: 20%;
   }
 
   img {
     border-radius: 16px 16px 0 0;
-    width: 200px;
+    width: 100%;
     max-height: 250px;
-
-    @include sm {
-      width: 150px;
-      max-height: 200px;
-    }
   }
 
   .zoom {
@@ -42,7 +37,6 @@
     .name {
       margin-left: 10px;
       text-align: center;
-      text-shadow: 2px 2px $third-color;
 
       &:hover {
         color: gray;
@@ -60,7 +54,6 @@
     }
 
     b {
-      border-bottom: 2px solid $third-color;
       line-height: 1.5;
     }
   }
